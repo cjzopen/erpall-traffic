@@ -1,0 +1,53 @@
+name: 每週更新留資成效（週二）
+
+on:
+  schedule:
+    # 每週二更新：台北週二 08:00（= 週二 00:00 UTC）
+    # 註：用 00:00 UTC 而非 22:00，避免換算後落到台北週三
+    - cron: "0 0 * * 2"
+  workflow_dispatch: {}         # 也可在 Actions 頁手動觸發
+
+permissions:
+  contents: write               # 需要寫入權限：把更新後的 index.html / data 推回 repo
+
+concurrency:
+  group: daily-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      - name: 安裝套件
+        run: pip install -r requirements.txt
+
+      - name: 還原服務帳號憑證（來自 Secret，不落地進 repo）
+        env:
+          GA_SERVICE_ACCOUNT: ${{ secrets.GA_SERVICE_ACCOUNT }}
+        run: printf '%s' "$GA_SERVICE_ACCOUNT" > "$RUNNER_TEMP/sa.json"
+
+      - name: 抓取 GA4 / GSC、產生 index.html
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GSC_PROPERTY_URL: ${{ secrets.GSC_PROPERTY_URL }}
+          GOOGLE_APPLICATION_CREDENTIALS: ${{ runner.temp }}/sa.json
+        run: python fetch_data.py
+
+      - name: 提交更新
+        run: |
+          git config user.name "erp-all-tracker[bot]"
+          git config user.email "actions@github.com"
+          git add index.html data/history.json
+          if git diff --cached --quiet; then
+            echo "無變化，略過提交。"
+          else
+            git commit -m "chore: 每週更新 ($(date -u +%Y-%m-%d))"
+            git push
+          fi

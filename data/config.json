@@ -1,0 +1,9 @@
+{
+  "site_title": "ERP-ALL 留資成效追蹤",
+  "host": "www.digiwin.com.tw",
+  "page_filter": "erp-all",
+  "rewrite_launch_date": "2026-07-02",
+  "compare_window_days": 28,
+  "history_window_days": 90,
+  "notes": "rewrite_launch_date = 改寫版上線日；趨勢圖會在此日標線。改寫上線滿 28 天後，近 28 天=改寫後、前 28 天=改寫前，即為對照。"
+}

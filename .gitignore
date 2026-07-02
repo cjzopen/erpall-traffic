@@ -1,0 +1,12 @@
+# 機敏憑證 — 絕不進 repo（服務帳號走 GitHub Secret）
+service-account.json
+sa.json
+*.key
+.env
+.env.*
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

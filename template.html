@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="googlebot" content="noindex, nofollow">
+<title>ERP-ALL 留資成效追蹤</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff; --s1:#F7F9FC; --s2:#EEF1F6; --border:#E2E7F0; --border2:#C9D1DE;
+  --t1:#092540; --t2:#4A5A73; --t3:#6B7A93; --t4:#9AA7BC;
+  --accent:#195AFE; --accent-sub:#EAF1FF;
+  --up:#00CD98; --down:#F5334F; --flat:#6B7A93; --amber:#FEB72B;
+  --sh-md:0 3px 6px rgba(14,30,62,.08); --sh-lg:0 12px 24px rgba(14,30,62,.08);
+  --viz0:#195AFE; --viz1:#FF6D03; --viz2:#00CD98; --viz3:#C343FF; --viz4:#FF326F; --viz5:#0FBFE5; --viz6:#FEB72B;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{
+  font-family:"DM Sans",system-ui,"Segoe UI","PingFang TC","Microsoft JhengHei",sans-serif;
+  background:var(--bg); color:var(--t1); font-size:14px; line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(var(--border) 0.5px,transparent 0.5px);
+  background-size:22px 22px;
+}
+.wrap{max-width:1120px; margin:0 auto; padding:24px 20px 64px}
+a{color:var(--accent); text-decoration:none}
+h1,h2,h3{letter-spacing:-.01em; margin:0}
+.tabnum{font-variant-numeric:tabular-nums}
+
+/* header */
+header.top{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:12px; margin-bottom:8px}
+header.top h1{font-size:26px; font-weight:700}
+.sub{color:var(--t3); font-size:13px; margin-top:4px}
+.meta-pills{display:flex; gap:8px; flex-wrap:wrap}
+.pill{background:var(--s2); color:var(--t2); border-radius:6px; padding:3px 10px; font-size:12px; font-weight:500}
+.pill.live{background:var(--accent-sub); color:var(--accent)}
+.banner{background:#FFF7E6; border:1px solid #FEB72B55; color:#7A4D00; border-radius:8px; padding:10px 14px; font-size:13px; margin:14px 0}
+
+/* section */
+section{margin-top:32px}
+.sec-h{display:flex; align-items:baseline; gap:10px; margin-bottom:14px}
+.sec-h h2{font-size:20px; font-weight:700}
+.sec-h .note{color:var(--t3); font-size:12px}
+
+/* KPI cards */
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:14px}
+.card{background:#fff; border:1px solid var(--border); border-radius:8px; box-shadow:var(--sh-md); padding:18px 18px 16px}
+.card .label{font-size:12px; font-weight:500; letter-spacing:.02em; color:var(--t3); display:flex; align-items:center; gap:6px}
+.card .val{font-size:30px; font-weight:700; margin-top:8px; line-height:1.1}
+.card .val small{font-size:15px; font-weight:500; color:var(--t3)}
+.delta{display:inline-flex; align-items:center; gap:3px; font-size:13px; font-weight:500; margin-top:8px}
+.delta.up{color:var(--up)} .delta.down{color:var(--down)} .delta.flat{color:var(--flat)}
+.delta .base{color:var(--t4); font-weight:400; margin-left:4px}
+.caret{font-size:11px}
+
+/* generic grid */
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+@media(max-width:820px){.grid2{grid-template-columns:1fr}}
+.panel{background:#fff; border:1px solid var(--border); border-radius:8px; box-shadow:var(--sh-md); padding:20px}
+.panel h3{font-size:15px; font-weight:700; margin-bottom:14px}
+.panel .note{color:var(--t3); font-size:12px; margin-top:12px; line-height:1.5}
+
+/* bars */
+.barrow{display:grid; grid-template-columns:150px minmax(60px,1fr) 50px 74px; align-items:center; gap:10px; margin:9px 0; font-size:13px}
+.barrow .name{color:var(--t2); overflow:hidden; text-overflow:ellipsis; white-space:nowrap}
+.bartrack{background:var(--s2); border-radius:4px; height:16px; overflow:hidden}
+.barfill{height:100%; border-radius:4px; background:var(--accent)}
+.barrow .num{text-align:right; color:var(--t1); font-weight:500}
+.rank{color:var(--t4); font-weight:500; margin-right:6px}
+/* 漲跌 chip */
+.rchip{display:inline-flex; align-items:center; gap:2px; justify-content:flex-end; font-size:11px; font-weight:500; font-variant-numeric:tabular-nums; white-space:nowrap}
+.rchip.up{color:var(--up)} .rchip.down{color:var(--down)} .rchip.flat{color:var(--t4)}
+.rchip.newbadge{color:var(--accent); background:var(--accent-sub); border-radius:4px; padding:1px 5px}
+/* 分組表頭 */
+.grp-head{display:flex; align-items:baseline; justify-content:space-between; gap:8px; margin:16px 0 4px; padding-bottom:5px; border-bottom:2px solid var(--border2)}
+.grp-head:first-child{margin-top:2px}
+.grp-name{font-size:13px; font-weight:700; color:var(--t1)}
+.grp-sub{font-size:12px; font-weight:500; color:var(--t3); font-variant-numeric:tabular-nums}
+@media(max-width:520px){.barrow{grid-template-columns:110px 1fr 44px 60px; gap:6px}}
+
+/* table */
+table{width:100%; border-collapse:collapse; font-size:13px}
+th{text-align:left; color:var(--t3); font-weight:500; font-size:12px; padding:8px 10px; border-bottom:1px solid var(--border)}
+td{padding:9px 10px; border-bottom:1px solid var(--s2); color:var(--t1)}
+th.r,td.r{text-align:right; font-variant-numeric:tabular-nums}
+tr:last-child td{border-bottom:none}
+
+/* svg chart */
+.chart{width:100%; height:auto; display:block}
+.legend{display:flex; gap:16px; flex-wrap:wrap; font-size:12px; color:var(--t2); margin-top:10px}
+.legend i{display:inline-block; width:10px; height:10px; border-radius:2px; margin-right:5px; vertical-align:middle}
+
+.empty{color:var(--t3); font-size:13px; padding:20px; text-align:center; background:var(--s1); border-radius:8px}
+footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border); color:var(--t4); font-size:12px; line-height:1.6}
+.tag-ind{background:var(--accent-sub); color:var(--accent); border-radius:4px; padding:1px 6px; font-size:11px; margin-left:6px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="top">
+    <div>
+      <h1 id="site-title">ERP-ALL 留資成效追蹤</h1>
+      <div class="sub" id="subline">載入中…</div>
+    </div>
+    <div class="meta-pills" id="pills"></div>
+  </header>
+
+  <div id="banner-slot"></div>
+
+  <!-- KPI -->
+  <section>
+    <div class="sec-h"><h2>核心 KPI</h2><span class="note">近 28 天 vs 前一個 28 天　｜　漲跌單位：計數(訪客/點擊/曝光)用 <b>%</b> 相對變化、比率(留資率/CTR/互動率)用 <b>pp</b> 百分點</span></div>
+    <div class="kpis" id="kpis"><div class="empty">載入中…</div></div>
+  </section>
+
+  <!-- 趨勢 -->
+  <section>
+    <div class="sec-h"><h2>每日趨勢</h2><span class="note" id="trend-note"></span></div>
+    <div class="grid2">
+      <div class="panel"><h3>當頁留資率（%）</h3><div id="chart-leadrate"></div></div>
+      <div class="panel"><h3>每日訪客</h3><div id="chart-users"></div></div>
+    </div>
+  </section>
+
+  <!-- 來源 / 裝置 -->
+  <section>
+    <div class="sec-h"><h2>流量來源與裝置</h2><span class="note">近 28 天，數字後為 vs 前 28 天</span></div>
+    <div class="grid2">
+      <div class="panel"><h3>流量來源（工作階段）</h3><div id="source-mix"></div></div>
+      <div class="panel"><h3>各裝置留資率 <span style="font-weight:400;color:var(--t3);font-size:12px">— 行動是改寫重點</span></h3><div id="device-split"></div></div>
+    </div>
+  </section>
+
+  <!-- 廣告表現 -->
+  <section>
+    <div class="sec-h"><h2>廣告表現</h2><span class="note">付費(cpc)流量，近 28 天 vs 前 28 天</span></div>
+    <div id="ads-headline"></div>
+    <div class="panel" style="margin-top:16px"><h3>各檔期表現 <span style="font-weight:400;color:var(--t3);font-size:12px">— 工作階段 × 留資率</span></h3><div id="ads-campaigns"></div></div>
+  </section>
+
+  <!-- 點擊 -->
+  <section>
+    <div class="sec-h"><h2>頁面點擊</h2><span class="note">content_click，近 28 天，數字後為 vs 前 28 天</span></div>
+    <div class="grid2">
+      <div class="panel"><h3>行業方案分流點擊 <span style="font-weight:400;color:var(--t3);font-size:12px">— report：最強催化劑</span></h3><div id="industry-click"></div></div>
+      <div class="panel"><h3>整體點擊排行</h3><div id="content-click"></div></div>
+    </div>
+    <div class="panel" style="margin-top:16px"><h3>點擊熱點 × 裝置 <span style="font-weight:400;color:var(--t3);font-size:12px">— 各元素占全頁點擊，及桌機/手機注意力差異</span></h3><div id="click-device"></div></div>
+  </section>
+
+  <!-- 分流樞紐 -->
+  <section>
+    <div class="sec-h"><h2>分流樞紐：前一頁 / 後一頁</h2><span class="note">近 28 天，數字後為 vs 前 28 天</span></div>
+    <div id="routing-headline"></div>
+    <div id="home-leak"></div>
+    <div class="grid2" style="margin-top:16px">
+      <div class="panel"><h3>前一頁（依來源分區）<span style="font-weight:400;color:var(--t3);font-size:12px">— 怎麼來到 erp-all</span></h3><div id="prev-grouped"></div></div>
+      <div class="panel"><h3>後一頁（依去向分區）<span style="font-weight:400;color:var(--t3);font-size:12px">— 從 erp-all 往哪去</span></h3><div id="next-grouped"></div></div>
+    </div>
+  </section>
+
+  <!-- GSC -->
+  <section>
+    <div class="sec-h"><h2>Google 搜尋成效（GSC）</h2><span class="note" id="gsc-note"></span></div>
+    <div id="gsc-slot"></div>
+  </section>
+
+  <footer id="footer"></footer>
+</div>
+
+<!--__DATA__-->
+<script>
+const NF = new Intl.NumberFormat('en-US');
+const $ = id => document.getElementById(id);
+const el = (t, cls, html) => { const e=document.createElement(t); if(cls)e.className=cls; if(html!=null)e.innerHTML=html; return e; };
+const esc = s => String(s).replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+
+function sum(arr, k){ return arr.reduce((a,b)=>a+(b[k]||0),0); }
+function avg(arr, k){ const v=arr.filter(x=>x[k]||x[k]===0); return v.length? sum(v,k)/v.length:0; }
+
+// 近 N 天 / 前 N 天切窗
+function splitWindows(daily, n){
+  const cur = daily.slice(-n);
+  const prev = daily.slice(-2*n, -n);
+  return {cur, prev};
+}
+
+// kind: 'rel'(相對%) | 'pp'(百分點) | 'abs'(絕對差)。invert：數字越小越好（如搜尋排名）
+function deltaHtml(cur, prev, {pct=false, invert=false, unit='', kind=null, digits=1}={}){
+  if(prev==null || prev===0 || cur==null){ return `<div class="delta flat"><span class="caret">—</span>無前期對照</div>`; }
+  const diff = cur - prev, rel = prev? (diff/prev*100):0;
+  let dir = diff>0?'up':(diff<0?'down':'flat');
+  if(invert && dir!=='flat') dir = dir==='up'?'down':'up';
+  const caret = dir==='up'?'▲':(dir==='down'?'▼':'—');
+  const mode = kind || (pct?'pp':'rel');
+  const shown = mode==='pp' ? (diff>0?'+':'')+diff.toFixed(2)+' pp'
+              : mode==='abs' ? (diff>0?'+':'')+diff.toFixed(digits)+unit
+              : (diff>0?'+':'')+Math.round(rel)+'%';
+  const baseTxt = mode==='rel' ? NF.format(Math.round(prev))+unit : prev.toFixed(mode==='pp'?2:digits)+unit;
+  return `<div class="delta ${dir}"><span class="caret">${caret}</span>${shown}<span class="base">前期 ${baseTxt}</span></div>`;
+}
+
+function kpiCard(label, valHtml, deltaH){
+  const c = el('div','card');
+  c.appendChild(el('div','label',esc(label)));
+  c.appendChild(el('div','val',valHtml));
+  c.insertAdjacentHTML('beforeend', deltaH);
+  return c;
+}
+
+// ---- SVG 折線圖 ----
+function lineChart(mount, data, key, {launch, fmt=(v=>v), color='#195AFE', pct=false}={}){
+  const box = $(mount); box.innerHTML='';
+  if(!data.length){ box.appendChild(el('div','empty','尚無資料')); return; }
+  const W=520,H=180,pl=40,pr=12,pt=14,pb=24, iw=W-pl-pr, ih=H-pt-pb;
+  const vals=data.map(d=>d[key]||0);
+  let max=Math.max(...vals,0), min=Math.min(...vals,0);
+  if(max===min){ max=max+1; }
+  const n=data.length;
+  const x=i=> pl + (n<=1?iw/2:iw*i/(n-1));
+  const y=v=> pt + ih - ih*(v-min)/(max-min);
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+  svg.setAttribute('viewBox',`0 0 ${W} ${H}`); svg.setAttribute('class','chart');
+  const NS='http://www.w3.org/2000/svg';
+  const mk=(t,a)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  // gridlines + y labels
+  for(let g=0;g<=2;g++){
+    const gv=min+(max-min)*g/2, gy=y(gv);
+    svg.appendChild(mk('line',{x1:pl,y1:gy,x2:W-pr,y2:gy,stroke:'#EEF1F6','stroke-width':1}));
+    const tl=mk('text',{x:pl-6,y:gy+3,'text-anchor':'end','font-size':10,fill:'#9AA7BC'}); tl.textContent=fmt(gv); svg.appendChild(tl);
+  }
+  // launch marker
+  if(launch){
+    const li=data.findIndex(d=>d.date===launch);
+    if(li>=0){
+      const lx=x(li);
+      svg.appendChild(mk('line',{x1:lx,y1:pt,x2:lx,y2:pt+ih,stroke:'#FF6D03','stroke-width':1.5,'stroke-dasharray':'4 3'}));
+      const lt=mk('text',{x:lx+3,y:pt+9,'font-size':9,fill:'#FF6D03'}); lt.textContent='改寫上線'; svg.appendChild(lt);
+    }
+  }
+  // area + line
+  const pts=data.map((d,i)=>`${x(i)},${y(d[key]||0)}`).join(' ');
+  svg.appendChild(mk('polyline',{points:pts,fill:'none',stroke:color,'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'}));
+  const area=`${pl},${pt+ih} `+pts+` ${x(n-1)},${pt+ih}`;
+  svg.appendChild(mk('polygon',{points:area,fill:color,opacity:.07}));
+  // last point
+  const last=data[n-1];
+  svg.appendChild(mk('circle',{cx:x(n-1),cy:y(last[key]||0),r:3,fill:color}));
+  // x labels (first/last)
+  const xl0=mk('text',{x:pl,y:H-6,'font-size':10,fill:'#9AA7BC'}); xl0.textContent=data[0].date.slice(5); svg.appendChild(xl0);
+  const xl1=mk('text',{x:W-pr,y:H-6,'text-anchor':'end','font-size':10,fill:'#9AA7BC'}); xl1.textContent=last.date.slice(5); svg.appendChild(xl1);
+  box.appendChild(svg);
+}
+
+// 每列漲跌 chip：kind='rel' → 相對 %；kind='pp' → 百分點
+// noPrev=true 表示整個前期窗無資料 → 顯示「—」而非誤導的「新」
+function relChip(delta, kind='rel', noPrev=false, invert=false){
+  if(delta==null) return noPrev ? `<span class="rchip flat">—</span>` : `<span class="rchip newbadge">新</span>`;
+  let dir = delta>0?'up':(delta<0?'down':'flat');
+  if(invert && dir!=='flat') dir = dir==='up'?'down':'up';   // 越少越好：下降=綠
+  const c = delta>0?'▲':(delta<0?'▼':'—');
+  const txt = kind==='pp' ? (delta>0?'+':'')+delta.toFixed(2)+'pp' : (delta>0?'+':'')+delta+'%';
+  return `<span class="rchip ${dir}">${c}${txt}</span>`;
+}
+
+function barList(mount, rows, {nameKey, valKey, unit='', fmt=(v=>NF.format(v)), highlight=null, colors=null, deltaKey='delta', deltaKind='rel', showDelta=true, showTotal=false}={}){
+  const box = typeof mount==='string' ? $(mount) : mount; box.innerHTML='';
+  if(!rows || !rows.length){ box.appendChild(el('div','empty','尚無資料')); return; }
+  const max=Math.max(...rows.map(r=>r[valKey]||0),1);
+  if(showTotal){ const tot=rows.reduce((a,r)=>a+(r[valKey]||0),0);
+    box.appendChild(el('div','note',`此區總計 <b>${NF.format(tot)}</b>${unit}（列出 ${rows.length} 項）`)); }
+  const noPrev = showDelta && !rows.some(r=>r[deltaKey]!=null);   // 整批都無前期 → 尚未可比
+  rows.forEach((r,i)=>{
+    const row=el('div','barrow');
+    const nm = highlight && highlight(r) ? esc(r[nameKey])+'<span class="tag-ind">行業</span>' : esc(r[nameKey]);
+    row.appendChild(el('div','name',`<span class="rank">${i+1}</span>${nm}`));
+    const track=el('div','bartrack');
+    const fill=el('div','barfill');
+    fill.style.width=Math.max(2,(r[valKey]||0)/max*100)+'%';
+    if(colors) fill.style.background=colors[i%colors.length];
+    track.appendChild(fill); row.appendChild(track);
+    row.appendChild(el('div','num',fmt(r[valKey])+unit));
+    row.insertAdjacentHTML('beforeend', showDelta ? relChip(r[deltaKey], deltaKind, noPrev) : '<span></span>');
+    box.appendChild(row);
+  });
+  if(noPrev) box.appendChild(el('div','note','前一個 28 天窗尚無此指標資料（埋點自 2026-06 起），漲跌待資料累積滿後自動顯示。'));
+}
+
+// 流量來源：重點是「哪個來源會留資」，量漲了若不留資也沒用
+function renderSource(mount, rows){
+  const box=$(mount); box.innerHTML='';
+  if(!rows || !rows.length){ box.appendChild(el('div','empty','尚無資料')); return; }
+  let html='<table><thead><tr><th>來源</th><th class="r">工作階段(占比)</th><th class="r">vs前期</th><th class="r">留資率</th></tr></thead><tbody>';
+  rows.slice(0,7).forEach(r=>{
+    html+=`<tr><td>${esc(r.channel)}</td>`+
+      `<td class="r">${NF.format(r.sessions)} <span style="color:var(--t4)">${r.pct}%</span></td>`+
+      `<td class="r">${relChip(r.delta,'rel')}</td>`+
+      `<td class="r"><b>${(r.lead_rate||0).toFixed(2)}%</b></td></tr>`;
+  });
+  html+='</tbody></table>';
+  // 然後呢：帶量來源 vs 帶留資來源
+  const vol=rows[0];
+  const conv=[...rows].filter(r=>r.sessions>=20).sort((a,b)=>b.lead_rate-a.lead_rate)[0];
+  let ins='';
+  if(vol&&conv){
+    ins=`量最大的是 <b>${esc(vol.channel)}</b>（占 ${vol.pct}%，留資率 ${(vol.lead_rate||0).toFixed(2)}%）；`+
+        `留資率最高的是 <b>${esc(conv.channel)}</b>（${conv.lead_rate.toFixed(2)}%）。`+
+        (vol.channel!==conv.channel ? '帶量與帶留資不是同一來源 — 衝低轉換來源的量不會提升留資。' : '');
+  }
+  box.innerHTML=html+`<div class="note">${ins} 留資率＝該來源 generate_lead ÷ 工作階段。</div>`;
+}
+
+// 行業方案分流：report 稱最強催化劑；追行業點擊佔比作為前導指標（相關非因果）
+function renderIndustry(mount, industry, allClicks){
+  const box=$(mount); box.innerHTML='';
+  const totAll=(allClicks||[]).reduce((a,c)=>a+(c.clicks||0),0);
+  const totInd=(industry||[]).reduce((a,c)=>a+(c.clicks||0),0);
+  const share = totAll? (totInd/totAll*100):0;
+  const head=el('div');
+  head.innerHTML=`<div style="display:flex;align-items:baseline;gap:8px;margin-bottom:12px">
+    <span style="font-size:26px;font-weight:700">${share.toFixed(1)}%</span>
+    <span style="color:var(--t3);font-size:13px">行業內容點擊佔總點擊（${NF.format(totInd)} / ${NF.format(totAll)} 次）</span></div>`;
+  box.appendChild(head);
+  if(!industry || !industry.length){ box.appendChild(el('div','empty','近 28 天無行業關鍵字點擊命中')); }
+  else { const sub=el('div'); box.appendChild(sub); barList(sub, industry, {nameKey:'text', valKey:'clicks', deltaKind:'rel'}); }
+  box.appendChild(el('div','note','report：行業方案是最強轉換催化劑（成功路徑 B 佔 31%）。此處追蹤行業內容互動量作為前導指標，為相關性觀察、非因果證明。'));
+}
+
+// 分區清單：groups = [{group, views(完整小計), pct, count, items:[{label,views,delta,industry}]}]
+// 小計/百分比皆由 Python 用完整資料算好，與首頁漏點卡等處分母一致
+function renderGrouped(mount, groups, {highlight=null}={}){
+  const box=$(mount); box.innerHTML='';
+  if(!groups || !groups.length){ box.appendChild(el('div','empty','尚無資料')); return; }
+  const allItems=groups.flatMap(g=>g.items||[]);
+  const noPrev=!allItems.some(i=>i.delta!=null);
+  const maxItem=Math.max(...allItems.map(i=>i.views||0),1);
+  groups.forEach(g=>{
+    const gh=el('div','grp-head');
+    gh.innerHTML=`<span class="grp-name">${esc(g.group)}</span><span class="grp-sub">${NF.format(g.views)} 次 · ${g.pct}%</span>`;
+    box.appendChild(gh);
+    (g.items||[]).forEach(r=>{
+      const row=el('div','barrow');
+      const nm = highlight&&highlight(r) ? esc(r.label)+'<span class="tag-ind">行業</span>' : esc(r.label);
+      row.appendChild(el('div','name',nm));
+      const track=el('div','bartrack'); const fill=el('div','barfill');
+      fill.style.width=Math.max(2,(r.views||0)/maxItem*100)+'%'; track.appendChild(fill); row.appendChild(track);
+      row.appendChild(el('div','num',NF.format(r.views)));
+      row.insertAdjacentHTML('beforeend', relChip(r.delta,'rel',noPrev));
+      box.appendChild(row);
+    });
+    if(g.count>(g.items||[]).length) box.appendChild(el('div','note',`（此區共 ${g.count} 項，顯示前 ${g.items.length}）`));
+  });
+}
+
+// 點擊熱點 × 裝置：每個元素占全頁點擊的比重，並拆桌機/手機各自的熱點分布
+function renderClickDevice(mount, rows, totals){
+  const box=$(mount); box.innerHTML='';
+  if(!rows || !rows.length){ box.appendChild(el('div','empty','尚無資料')); return; }
+  let html='';
+  if(totals){
+    const t=(totals.desktop||0)+(totals.mobile||0)+(totals.tablet||0)||1;
+    html+=`<div class="note" style="margin:0 0 12px">全頁點擊 <b>${NF.format(totals.grand||t)}</b>：桌機 <b>${NF.format(totals.desktop||0)}</b>（${Math.round((totals.desktop||0)/t*100)}%）· 手機 <b>${NF.format(totals.mobile||0)}</b>（${Math.round((totals.mobile||0)/t*100)}%）</div>`;
+  }
+  const maxShare=Math.max(...rows.map(r=>r.share||0),1);
+  html+='<table><thead><tr><th>點擊項（熱點）</th><th class="r">占全頁</th><th class="r">桌機分布</th><th class="r">手機分布</th></tr></thead><tbody>';
+  rows.forEach(r=>{
+    const bar=`<div class="bartrack" style="display:inline-block;width:46px;vertical-align:middle;margin-right:6px"><div class="barfill" style="width:${Math.max(4,(r.share||0)/maxShare*100)}%"></div></div>`;
+    const lean = r.mobile_lean ? ' <span class="tag-ind" style="background:#FFF7E6;color:#7A4D00">手機偏好</span>' : '';
+    html+=`<tr><td>${esc(r.text)}${lean}</td>`+
+      `<td class="r">${bar}<b>${(r.share||0).toFixed(1)}%</b></td>`+
+      `<td class="r">${(r.desktop_share||0).toFixed(1)}%</td>`+
+      `<td class="r">${(r.mobile_share||0).toFixed(1)}%</td></tr>`;
+  });
+  html+='</tbody></table>';
+  html+='<div class="note"><b>占全頁</b>＝該元素點擊 ÷ 全頁總點擊（熱點強度）。<b>桌機/手機分布</b>＝該元素占「該裝置全部點擊」的比重；兩者差距顯示裝置注意力差異。標「手機偏好」＝手機分布高於桌機分布，代表手機用戶相對更常點此元素。</div>';
+  box.innerHTML=html;
+}
+
+// 裝置：看各裝置留資率與變化（對應 report 行動能見度瓶頸），流量占比為輔
+function renderDevice(mount, rows){
+  const box=$(mount); box.innerHTML='';
+  if(!rows || !rows.length){ box.appendChild(el('div','empty','尚無資料')); return; }
+  const LABEL={desktop:'桌機',mobile:'行動',tablet:'平板'};
+  let html='<table><thead><tr><th>裝置</th><th class="r">訪客(占比)</th><th class="r">留資率</th><th class="r">vs 前期</th></tr></thead><tbody>';
+  rows.forEach(r=>{
+    html+=`<tr><td>${LABEL[r.device]||esc(r.device)}</td>`+
+          `<td class="r">${NF.format(r.users)} <span style="color:var(--t4)">${r.pct}%</span></td>`+
+          `<td class="r"><b>${r.lead_rate.toFixed(2)}%</b></td>`+
+          `<td class="r">${relChip(r.lead_rate_delta_pp,'pp')}</td></tr>`;
+  });
+  html+='</tbody></table>';
+  // 洞察句：行動 vs 桌機留資率
+  const m=rows.find(r=>r.device==='mobile'), d=rows.find(r=>r.device==='desktop');
+  let insight='';
+  if(m && d && d.lead_rate){
+    const ratio=(m.lead_rate/d.lead_rate*100);
+    insight=`行動留資率 <b>${m.lead_rate.toFixed(2)}%</b>，為桌機（${d.lead_rate.toFixed(2)}%）的 <b>${ratio.toFixed(0)}%</b>。`+
+      (m.lead_rate<d.lead_rate?'行動仍是主要瓶頸，是改寫要救的重點。':'行動已追上桌機。');
+  }
+  box.innerHTML=html+`<div class="note">${insight} 留資率＝該裝置 generate_lead ÷ 訪客。</div>`;
+}
+
+async function load(){
+  // 優先讀 Python 嵌入的資料（自包含 HTML）；若無則 fetch json（開發備援）
+  let cfg = window.__CONFIG__ || {}, h = window.__DATA__ || null;
+  if(!h){
+    try{ cfg=await (await fetch('data/config.json?_='+Date.now())).json(); }catch(e){}
+    try{ h=await (await fetch('data/history.json?_='+Date.now())).json(); }catch(e){
+      $('kpis').innerHTML='<div class="empty">無法載入資料檔</div>'; return;
+    }
+  }
+  const N = h.window_days || cfg.compare_window_days || 28;
+  const launch = cfg.rewrite_launch_date;
+  $('site-title').textContent = cfg.site_title || 'ERP-ALL 留資成效追蹤';
+
+  // header
+  const pills=$('pills');
+  pills.appendChild(el('span','pill live','●'));
+  if(launch) pills.appendChild(el('span','pill',`改寫上線 ${launch}`));
+  $('subline').textContent = h.updated_at ? `資料更新：${h.updated_at}（台北時間）｜比較窗：近 ${N} 天 vs 前 ${N} 天` : '尚未執行第一次抓數';
+
+  if(!h.ga4 || !h.ga4.daily || !h.ga4.daily.length){
+    $('banner-slot').innerHTML = `<div class="banner">目前尚無 GA4 資料。GitHub Actions 排程首次執行後（每日台北 06:00）此頁會自動填入數據。${h.status?'<br>狀態：'+esc(h.status):''}</div>`;
+    $('kpis').innerHTML='<div class="empty">等待第一次資料</div>';
+    return;
+  }
+
+  const daily = h.ga4.daily;
+  const {cur, prev} = splitWindows(daily, N);
+  $('trend-note').textContent = `近 ${daily.length} 天，橘色虛線為改寫上線日`;
+
+  // ---- KPI ----
+  const curUsers=sum(cur,'users'), prevUsers=sum(prev,'users');
+  const curLeads=sum(cur,'leads'), prevLeads=sum(prev,'leads');
+  const curRate= curUsers? curLeads/curUsers*100:0;
+  const prevRate= prevUsers? prevLeads/prevUsers*100:0;
+  const curEng=avg(cur,'engagement_rate'), prevEng=avg(prev,'engagement_rate');
+  const curVps=avg(cur,'views_per_session'), prevVps=avg(prev,'views_per_session');
+
+  const k=$('kpis'); k.innerHTML='';
+  k.appendChild(kpiCard('當頁留資率', `${curRate.toFixed(2)}<small>%</small>`, deltaHtml(curRate,prevRate,{pct:true,unit:'%'})));
+  k.appendChild(kpiCard(`累計留資（近${N}天）`, `${NF.format(curLeads)}<small> 筆</small>`, deltaHtml(curLeads,prevLeads,{})));
+  k.appendChild(kpiCard(`訪客（近${N}天）`, `${NF.format(curUsers)}`, deltaHtml(curUsers,prevUsers,{})));
+  k.appendChild(kpiCard('互動率', `${curEng.toFixed(1)}<small>%</small>`, deltaHtml(curEng,prevEng,{pct:true,unit:'%'})));
+  k.appendChild(kpiCard('平均觀看頁數', `${curVps.toFixed(2)}`, deltaHtml(curVps,prevVps,{})));
+
+  // ---- 趨勢 ----
+  lineChart('chart-leadrate', daily, 'lead_rate', {launch, fmt:v=>v.toFixed(1)+'%', color:'#195AFE'});
+  lineChart('chart-users', daily, 'users', {launch, fmt:v=>NF.format(Math.round(v)), color:'#0FBFE5'});
+
+  // ---- 來源 / 裝置 ----
+  renderSource('source-mix', h.ga4.source_mix);
+  renderDevice('device-split', h.ga4.device);
+
+  // ---- 廣告表現 ----
+  const ad=h.ga4.ads;
+  if(ad){
+    const ap=ad.prev||{}, ad_d=ad.delta||{};
+    const ah=$('ads-headline');
+    const cards=el('div','kpis');
+    cards.appendChild(kpiCard('廣告工作階段', `${NF.format(ad.sessions)}<small> ／占 ${ad.share_pct}%</small>`, deltaHtml(ad.sessions,ap.sessions,{})));
+    cards.appendChild(kpiCard('廣告留資率', `${ad.lead_rate.toFixed(2)}<small>%</small>`, deltaHtml(ad.lead_rate,ap.lead_rate,{kind:'pp',unit:'%'})));
+    cards.appendChild(kpiCard('廣告留資數', `${NF.format(ad.leads)}<small> 筆</small>`, deltaHtml(ad.leads,ap.leads,{})));
+    ah.appendChild(cards);
+    // 各檔期表格
+    const cs=ad.campaigns||[];
+    const cbox=$('ads-campaigns');
+    if(!cs.length){ cbox.innerHTML='<div class="empty">尚無檔期資料</div>'; }
+    else{
+      let html='<table><thead><tr><th>檔期</th><th class="r">工作階段</th><th class="r">vs前期</th><th class="r">留資率</th><th class="r">留資率vs前期</th></tr></thead><tbody>';
+      cs.forEach(c=>{ html+=`<tr><td>${esc(c.campaign)}</td>`+
+        `<td class="r">${NF.format(c.sessions)}</td>`+
+        `<td class="r">${relChip(c.delta,'rel')}</td>`+
+        `<td class="r"><b>${c.lead_rate.toFixed(2)}%</b></td>`+
+        `<td class="r">${relChip(c.lead_rate_delta_pp,'pp')}</td></tr>`; });
+      html+='</tbody></table>';
+      // 然後呢：帶量檔期 vs 帶留資檔期
+      const vol=cs[0], conv=[...cs].filter(c=>c.sessions>=20).sort((a,b)=>b.lead_rate-a.lead_rate)[0];
+      let ins='';
+      if(vol&&conv){ ins=`投放量最大：<b>${esc(vol.campaign)}</b>（${NF.format(vol.sessions)} 次，留資率 ${vol.lead_rate.toFixed(2)}%）；`+
+        `留資率最高：<b>${esc(conv.campaign)}</b>（${conv.lead_rate.toFixed(2)}%）。`+
+        (vol.campaign!==conv.campaign?'預算集中的檔期未必最會留資，可據此調整投放權重。':''); }
+      cbox.innerHTML=html+`<div class="note">${ins}</div>`;
+    }
+  }
+
+  // ---- 點擊（每列帶 vs 前期漲跌）----
+  renderIndustry('industry-click', h.ga4.industry_click, h.ga4.content_click);
+  barList('content-click', (h.ga4.content_click||[]).slice(0,12), {nameKey:'text', valKey:'clicks', deltaKind:'rel', showTotal:true});
+  renderClickDevice('click-device', h.ga4.click_device, h.ga4.click_device_totals);
+
+  // ---- 分流樞紐 ----
+  const rt=h.ga4.routing||{};
+  const rh=$('routing-headline');
+  if(rt.total_next_views){
+    rh.innerHTML=`<div class="panel" style="display:flex;flex-wrap:wrap;gap:28px;align-items:center">
+      <div><div class="label" style="color:var(--t3)">設計導流達成率</div>
+        <div style="font-size:34px;font-weight:700;color:var(--accent)">${rt.design_pct}%</div>
+        <div class="caption" style="color:var(--t3)">後一頁前往 行業方案／表單／完成頁 的比例</div></div>
+      <div style="border-left:1px solid var(--border);padding-left:28px"><div class="label" style="color:var(--t3)">→ 行業方案頁</div><div style="font-size:26px;font-weight:700">${rt.to_industry_pct}%</div></div>
+      <div><div class="label" style="color:var(--t3)">→ 表單/完成頁</div><div style="font-size:26px;font-weight:700">${rt.to_form_pct}%</div></div>
+      <div style="flex:1;min-width:220px;color:var(--t2);font-size:13px;line-height:1.5">report 定位 erp-all 為「分流樞紐」：應把品牌流量導向行業方案、再促成留資。此列衡量離開 erp-all 後是否走上設計路徑。</div>
+    </div>
+    <div class="note" style="margin-top:8px">「下一頁」已用爬取 erp-all 的實際連結白名單（${rt.whitelist_size||0} 條）過濾：排除同頁重載/錨點 <b>${NF.format(rt.stayed_on_page||0)}</b> 次、非連結流量 ${NF.format(rt.dropped_nonlink||0)} 次，只計真正點連結前往的下一頁。${rt.whitelist_used?'':'（本次爬取失敗，僅排除本頁）'}</div>`;
+  }
+  // 後一頁＝首頁：推測性漏點（沒找到想要的內容而退回首頁）
+  const home=(h.ga4.next_page||[]).find(r=>r.label==='首頁');
+  if(home){
+    $('home-leak').innerHTML=`<div class="banner" style="margin-top:16px">
+      <b>⚠ 後一頁退回首頁：${home.pct}%（${NF.format(home.views)} 次）</b> ${relChip(home.delta,'rel',false,true)}
+      <span style="color:var(--t3)"> · 越少越好，下降為佳</span><br>
+      <b>推測</b>：這批使用者可能在 erp-all <b>沒找到想要的內容</b>，退回首頁另尋。回首頁不推進留資漏斗，且與「導流到行業方案」的設計方向相反。
+      此為行為推測 —— 回首頁也可能只是點 logo 的一般導覽，非定論；建議與「行業方案頁 ${(h.ga4.routing||{}).to_industry_pct||0}%」的導流比對照觀察。
+    </div>`;
+  }
+  renderGrouped('prev-grouped', h.ga4.prev_grouped);
+  renderGrouped('next-grouped', h.ga4.next_grouped, {highlight:r=>r.industry});
+
+  // ---- GSC ----
+  const gsc=h.gsc||{}; const slot=$('gsc-slot');
+  if(!gsc.available){
+    $('gsc-note').textContent='未授權';
+    slot.innerHTML=`<div class="empty">Search Console 未接上。${gsc.note?esc(gsc.note):''}<br>若要顯示搜尋成效，請將服務帳號 email 加為該 GSC 資源的使用者。</div>`;
+  }else{
+    $('gsc-note').textContent = gsc.range ? `近 ${N} 天 ${gsc.range[0]} ~ ${gsc.range[1]}（延遲約 3 天）vs 前 ${N} 天` : '';
+    const t=gsc.totals||{}, p=t.prev||{};
+    const cards=el('div','kpis');
+    cards.appendChild(kpiCard('點擊',`${NF.format(t.clicks||0)}`, deltaHtml(t.clicks,p.clicks,{})));
+    cards.appendChild(kpiCard('曝光',`${NF.format(t.impressions||0)}`, deltaHtml(t.impressions,p.impressions,{})));
+    cards.appendChild(kpiCard('CTR',`${(t.ctr||0).toFixed(2)}<small>%</small>`, deltaHtml(t.ctr,p.ctr,{kind:'pp',unit:'%'})));
+    cards.appendChild(kpiCard('平均排名',`${(t.position||0).toFixed(1)}`, deltaHtml(t.position,p.position,{kind:'abs',invert:true,digits:1})));
+    slot.appendChild(cards);
+    // 趨勢 + 然後呢
+    if(gsc.daily && gsc.daily.length){
+      const tp=el('div','panel'); tp.style.marginTop='20px';
+      tp.appendChild(el('h3',null,'每日曝光趨勢'));
+      const cd=el('div'); cd.id='chart-gsc'; tp.appendChild(cd); slot.appendChild(tp);
+      lineChart('chart-gsc', gsc.daily, 'impressions', {fmt:v=>NF.format(Math.round(v)), color:'#C343FF'});
+    }
+    const topq = (gsc.queries&&gsc.queries[0]) ? gsc.queries[0].query : '';
+    const insight=el('div','banner');
+    insight.style.background='#EAF1FF'; insight.style.color='#0E3CB0'; insight.style.borderColor='#ADC7FF';
+    insight.innerHTML=`GSC 衡量「被搜到」（獲客端），與當頁留資分開看。熱門字以品牌字（如「${esc(topq)}」）為主 — 呼應 report「品牌流量進站、驗證行業適配」的結論。曝光/點擊趨勢反映品牌能見度，排名下降(數字變小)為佳。`;
+    slot.appendChild(insight);
+    if(gsc.queries && gsc.queries.length){
+      const panel=el('div','panel'); panel.style.marginTop='20px';
+      panel.appendChild(el('h3',null,'熱門搜尋字（Top 25）'));
+      const qNoPrev=!gsc.queries.some(q=>q.delta!=null);
+      let rows=gsc.queries.map(q=>`<tr><td>${esc(q.query)}</td><td class="r">${NF.format(q.clicks)}</td><td class="r">${relChip(q.delta,'rel',qNoPrev)}</td><td class="r">${NF.format(q.impressions)}</td><td class="r">${q.ctr.toFixed(1)}%</td><td class="r">${q.position.toFixed(1)}</td></tr>`).join('');
+      panel.insertAdjacentHTML('beforeend',`<table><thead><tr><th>搜尋字</th><th class="r">點擊</th><th class="r">點擊vs前期</th><th class="r">曝光</th><th class="r">CTR</th><th class="r">排名</th></tr></thead><tbody>${rows}</tbody></table>`);
+      slot.appendChild(panel);
+    }
+  }
+
+  // footer
+  $('footer').innerHTML = `資料來源：GA4 Data API（網域 ${esc(cfg.host||'www.digiwin.com.tw')}、頁面含「${esc(cfg.page_filter||'erp-all')}」）＋ Google Search Console。每週二 台北 08:00 由 GitHub Actions 自動更新。<br>本頁 <b>noindex/nofollow</b>，不被搜尋引擎收錄。留資率＝當頁 generate_lead ÷ 訪客；跨頁「總留資貢獻」需 path-export 手動分析，不在本自動追蹤範圍。<br><b>漲跌單位</b>：計數類用相對 %，比率類用百分點 pp。`;
+}
+load();
+</script>
+</body>
+</html>
