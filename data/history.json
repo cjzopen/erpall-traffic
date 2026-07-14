@@ -1,80 +1,10 @@
 {
-  "updated_at": "2026-07-07 10:53",
+  "updated_at": "2026-07-14 10:13",
   "status": "ok",
   "window_days": 28,
   "history_days": 90,
   "ga4": {
     "daily": [
-      {
-        "date": "2026-04-08",
-        "users": 174,
-        "sessions": 190,
-        "engagement_rate": 58.4,
-        "bounce_rate": 41.6,
-        "views_per_session": 1.03,
-        "leads": 1,
-        "lead_rate": 0.57
-      },
-      {
-        "date": "2026-04-09",
-        "users": 174,
-        "sessions": 191,
-        "engagement_rate": 62.3,
-        "bounce_rate": 37.7,
-        "views_per_session": 1.09,
-        "leads": 2,
-        "lead_rate": 1.15
-      },
-      {
-        "date": "2026-04-10",
-        "users": 143,
-        "sessions": 166,
-        "engagement_rate": 54.8,
-        "bounce_rate": 45.2,
-        "views_per_session": 1.07,
-        "leads": 3,
-        "lead_rate": 2.1
-      },
-      {
-        "date": "2026-04-11",
-        "users": 12,
-        "sessions": 14,
-        "engagement_rate": 21.4,
-        "bounce_rate": 78.6,
-        "views_per_session": 0.93,
-        "leads": 0,
-        "lead_rate": 0.0
-      },
-      {
-        "date": "2026-04-12",
-        "users": 13,
-        "sessions": 14,
-        "engagement_rate": 35.7,
-        "bounce_rate": 64.3,
-        "views_per_session": 0.93,
-        "leads": 0,
-        "lead_rate": 0.0
-      },
-      {
-        "date": "2026-04-13",
-        "users": 157,
-        "sessions": 172,
-        "engagement_rate": 64.0,
-        "bounce_rate": 36.0,
-        "views_per_session": 1.12,
-        "leads": 3,
-        "lead_rate": 1.91
-      },
-      {
-        "date": "2026-04-14",
-        "users": 220,
-        "sessions": 255,
-        "engagement_rate": 51.8,
-        "bounce_rate": 48.2,
-        "views_per_session": 1.19,
-        "leads": 7,
-        "lead_rate": 3.18
-      },
       {
         "date": "2026-04-15",
         "users": 208,
@@ -898,43 +828,113 @@
       {
         "date": "2026-07-06",
         "users": 199,
-        "sessions": 227,
-        "engagement_rate": 31.7,
-        "bounce_rate": 68.3,
-        "views_per_session": 1.0,
+        "sessions": 228,
+        "engagement_rate": 68.4,
+        "bounce_rate": 31.6,
+        "views_per_session": 1.09,
         "leads": 4,
         "lead_rate": 2.01
+      },
+      {
+        "date": "2026-07-07",
+        "users": 242,
+        "sessions": 266,
+        "engagement_rate": 56.8,
+        "bounce_rate": 43.2,
+        "views_per_session": 1.09,
+        "leads": 4,
+        "lead_rate": 1.65
+      },
+      {
+        "date": "2026-07-08",
+        "users": 272,
+        "sessions": 299,
+        "engagement_rate": 56.9,
+        "bounce_rate": 43.1,
+        "views_per_session": 1.93,
+        "leads": 2,
+        "lead_rate": 0.74
+      },
+      {
+        "date": "2026-07-09",
+        "users": 299,
+        "sessions": 323,
+        "engagement_rate": 46.7,
+        "bounce_rate": 53.3,
+        "views_per_session": 1.05,
+        "leads": 2,
+        "lead_rate": 0.67
+      },
+      {
+        "date": "2026-07-10",
+        "users": 216,
+        "sessions": 223,
+        "engagement_rate": 45.3,
+        "bounce_rate": 54.7,
+        "views_per_session": 1.09,
+        "leads": 1,
+        "lead_rate": 0.46
+      },
+      {
+        "date": "2026-07-11",
+        "users": 27,
+        "sessions": 30,
+        "engagement_rate": 60.0,
+        "bounce_rate": 40.0,
+        "views_per_session": 1.0,
+        "leads": 0,
+        "lead_rate": 0.0
+      },
+      {
+        "date": "2026-07-12",
+        "users": 18,
+        "sessions": 19,
+        "engagement_rate": 42.1,
+        "bounce_rate": 57.9,
+        "views_per_session": 0.89,
+        "leads": 0,
+        "lead_rate": 0.0
+      },
+      {
+        "date": "2026-07-13",
+        "users": 149,
+        "sessions": 160,
+        "engagement_rate": 38.1,
+        "bounce_rate": 61.9,
+        "views_per_session": 1.04,
+        "leads": 2,
+        "lead_rate": 1.34
       }
     ],
     "source_mix": [
       {
         "channel": "Paid Search",
-        "sessions": 3298,
-        "pct": 73.3,
-        "prev_sessions": 3554,
-        "delta": -7.2,
-        "leads": 30,
-        "lead_rate": 0.91,
-        "prev_lead_rate": 0.98,
-        "lead_rate_delta_pp": -0.08
+        "sessions": 3561,
+        "pct": 75.8,
+        "prev_sessions": 3562,
+        "delta": -0.0,
+        "leads": 27,
+        "lead_rate": 0.76,
+        "prev_lead_rate": 1.12,
+        "lead_rate_delta_pp": -0.36
       },
       {
         "channel": "Organic Search",
-        "sessions": 464,
-        "pct": 10.3,
-        "prev_sessions": 460,
-        "delta": 0.9,
+        "sessions": 495,
+        "pct": 10.5,
+        "prev_sessions": 512,
+        "delta": -3.3,
         "leads": 7,
-        "lead_rate": 1.51,
-        "prev_lead_rate": 0.43,
-        "lead_rate_delta_pp": 1.07
+        "lead_rate": 1.41,
+        "prev_lead_rate": 0.59,
+        "lead_rate_delta_pp": 0.83
       },
       {
         "channel": "Direct",
-        "sessions": 292,
-        "pct": 6.5,
-        "prev_sessions": 190,
-        "delta": 53.7,
+        "sessions": 295,
+        "pct": 6.3,
+        "prev_sessions": 209,
+        "delta": 41.1,
         "leads": 0,
         "lead_rate": 0.0,
         "prev_lead_rate": 0.0,
@@ -942,32 +942,32 @@
       },
       {
         "channel": "Unassigned",
-        "sessions": 201,
-        "pct": 4.5,
-        "prev_sessions": 17,
-        "delta": 1082.4,
-        "leads": 0,
-        "lead_rate": 0.0,
+        "sessions": 174,
+        "pct": 3.7,
+        "prev_sessions": 20,
+        "delta": 770.0,
+        "leads": 1,
+        "lead_rate": 0.57,
         "prev_lead_rate": 0.0,
-        "lead_rate_delta_pp": 0.0
+        "lead_rate_delta_pp": 0.57
       },
       {
         "channel": "Cross-network",
-        "sessions": 128,
-        "pct": 2.8,
-        "prev_sessions": 38,
-        "delta": 236.8,
-        "leads": 1,
-        "lead_rate": 0.78,
-        "prev_lead_rate": 5.26,
-        "lead_rate_delta_pp": -4.48
+        "sessions": 91,
+        "pct": 1.9,
+        "prev_sessions": 47,
+        "delta": 93.6,
+        "leads": 0,
+        "lead_rate": 0.0,
+        "prev_lead_rate": 2.13,
+        "lead_rate_delta_pp": -2.13
       },
       {
         "channel": "Email",
-        "sessions": 63,
-        "pct": 1.4,
-        "prev_sessions": 65,
-        "delta": -3.1,
+        "sessions": 42,
+        "pct": 0.9,
+        "prev_sessions": 70,
+        "delta": -40.0,
         "leads": 0,
         "lead_rate": 0.0,
         "prev_lead_rate": 0.0,
@@ -975,10 +975,10 @@
       },
       {
         "channel": "Referral",
-        "sessions": 31,
-        "pct": 0.7,
-        "prev_sessions": 73,
-        "delta": -57.5,
+        "sessions": 19,
+        "pct": 0.4,
+        "prev_sessions": 78,
+        "delta": -75.6,
         "leads": 0,
         "lead_rate": 0.0,
         "prev_lead_rate": 0.0,
@@ -986,32 +986,32 @@
       },
       {
         "channel": "AI Assistant",
-        "sessions": 9,
+        "sessions": 11,
         "pct": 0.2,
-        "prev_sessions": 0,
-        "delta": null,
+        "prev_sessions": 2,
+        "delta": 450.0,
         "leads": 0,
         "lead_rate": 0.0,
-        "prev_lead_rate": 0,
-        "lead_rate_delta_pp": null
-      },
-      {
-        "channel": "Display",
-        "sessions": 8,
-        "pct": 0.2,
-        "prev_sessions": 0,
-        "delta": null,
-        "leads": 0,
-        "lead_rate": 0.0,
-        "prev_lead_rate": 0,
-        "lead_rate_delta_pp": null
+        "prev_lead_rate": 0.0,
+        "lead_rate_delta_pp": 0.0
       },
       {
         "channel": "Organic Social",
-        "sessions": 8,
+        "sessions": 9,
         "pct": 0.2,
         "prev_sessions": 8,
-        "delta": 0.0,
+        "delta": 12.5,
+        "leads": 0,
+        "lead_rate": 0.0,
+        "prev_lead_rate": 0.0,
+        "lead_rate_delta_pp": 0.0
+      },
+      {
+        "channel": "Display",
+        "sessions": 1,
+        "pct": 0.0,
+        "prev_sessions": 7,
+        "delta": -85.7,
         "leads": 0,
         "lead_rate": 0.0,
         "prev_lead_rate": 0.0,
@@ -1021,26 +1021,26 @@
     "device": [
       {
         "device": "desktop",
-        "users": 2713,
-        "pct": 74.3,
-        "leads": 34,
-        "lead_rate": 1.25,
-        "prev_lead_rate": 1.25,
-        "lead_rate_delta_pp": 0.01
+        "users": 2660,
+        "pct": 68.3,
+        "leads": 31,
+        "lead_rate": 1.17,
+        "prev_lead_rate": 1.43,
+        "lead_rate_delta_pp": -0.26
       },
       {
         "device": "mobile",
-        "users": 930,
-        "pct": 25.5,
+        "users": 1220,
+        "pct": 31.3,
         "leads": 4,
-        "lead_rate": 0.43,
-        "prev_lead_rate": 0.65,
-        "lead_rate_delta_pp": -0.22
+        "lead_rate": 0.33,
+        "prev_lead_rate": 0.52,
+        "lead_rate_delta_pp": -0.19
       },
       {
         "device": "tablet",
-        "users": 10,
-        "pct": 0.3,
+        "users": 14,
+        "pct": 0.4,
         "leads": 0,
         "lead_rate": 0.0,
         "prev_lead_rate": 0.0,
@@ -1050,572 +1050,572 @@
     "content_click": [
       {
         "text": "導覽列-解決方案",
-        "clicks": 503,
-        "prev_clicks": 52,
-        "delta": 867.3
+        "clicks": 500,
+        "prev_clicks": 190,
+        "delta": 163.2
       },
       {
         "text": "導覽列-量身規劃",
-        "clicks": 465,
-        "prev_clicks": 39,
-        "delta": 1092.3
+        "clicks": 442,
+        "prev_clicks": 176,
+        "delta": 151.1
       },
       {
         "text": "導覽列-數據智慧化",
-        "clicks": 373,
-        "prev_clicks": 35,
-        "delta": 965.7
+        "clicks": 381,
+        "prev_clicks": 134,
+        "delta": 184.3
       },
       {
         "text": "導覽列-LOGO",
-        "clicks": 298,
-        "prev_clicks": 25,
-        "delta": 1092.0
+        "clicks": 272,
+        "prev_clicks": 115,
+        "delta": 136.5
       },
       {
         "text": "導覽列-常見問題",
-        "clicks": 240,
-        "prev_clicks": 20,
-        "delta": 1100.0
+        "clicks": 239,
+        "prev_clicks": 85,
+        "delta": 181.2
       },
       {
         "text": "常見問題-如何選擇適合我們公司的ERP",
-        "clicks": 231,
-        "prev_clicks": 12,
-        "delta": 1825.0
+        "clicks": 211,
+        "prev_clicks": 76,
+        "delta": 177.6
       },
       {
         "text": "常見問題-鼎新ERP的優勢有哪些",
-        "clicks": 184,
-        "prev_clicks": 11,
-        "delta": 1572.7
+        "clicks": 187,
+        "prev_clicks": 55,
+        "delta": 240.0
       },
       {
         "text": "常見問題-ERP系統導入需要多長的時間",
-        "clicks": 182,
-        "prev_clicks": 6,
-        "delta": 2933.3
+        "clicks": 175,
+        "prev_clicks": 53,
+        "delta": 230.2
       },
       {
         "text": "導覽列-預約Demo",
-        "clicks": 130,
-        "prev_clicks": 11,
-        "delta": 1081.8
-      },
-      {
-        "text": "常見問題-ERP系統的售後服務與持續升級服務",
-        "clicks": 119,
-        "prev_clicks": 3,
-        "delta": 3866.7
+        "clicks": 136,
+        "prev_clicks": 48,
+        "delta": 183.3
       },
       {
         "text": "常見問題-如何評估ERP導入後的效益",
-        "clicks": 115,
-        "prev_clicks": 6,
-        "delta": 1816.7
+        "clicks": 112,
+        "prev_clicks": 34,
+        "delta": 229.4
       },
       {
-        "text": "常見問題-什麼是ERP系統",
-        "clicks": 101,
-        "prev_clicks": 4,
-        "delta": 2425.0
+        "text": "常見問題-ERP系統的售後服務與持續升級服務",
+        "clicks": 105,
+        "prev_clicks": 40,
+        "delta": 162.5
       },
       {
         "text": "常見問題-ERP系統能確保我的資訊安全嗎",
-        "clicks": 98,
-        "prev_clicks": 5,
-        "delta": 1860.0
+        "clicks": 100,
+        "prev_clicks": 26,
+        "delta": 284.6
+      },
+      {
+        "text": "常見問題-什麼是ERP系統",
+        "clicks": 100,
+        "prev_clicks": 29,
+        "delta": 244.8
       },
       {
         "text": "主視覺-預約諮詢服務",
-        "clicks": 80,
-        "prev_clicks": 10,
-        "delta": 700.0
+        "clicks": 78,
+        "prev_clicks": 33,
+        "delta": 136.4
       },
       {
         "text": "量身規劃製造業-機械業",
-        "clicks": 65,
-        "prev_clicks": 8,
-        "delta": 712.5
+        "clicks": 63,
+        "prev_clicks": 20,
+        "delta": 215.0
       },
       {
         "text": "量身規劃企業規模-中小型企業SmartERP",
-        "clicks": 64,
-        "prev_clicks": 2,
-        "delta": 3100.0
-      },
-      {
-        "text": "量身規劃製造業-工程業",
-        "clicks": 57,
-        "prev_clicks": 8,
-        "delta": 612.5
-      },
-      {
-        "text": "量身規劃製造業-more",
-        "clicks": 48,
-        "prev_clicks": 9,
-        "delta": 433.3
-      },
-      {
-        "text": "AiGP區-製造業Workflow",
-        "clicks": 41,
-        "prev_clicks": 2,
-        "delta": 1950.0
+        "clicks": 55,
+        "prev_clicks": 23,
+        "delta": 139.1
       },
       {
         "text": "AiGP區-中小企業SmartERP",
-        "clicks": 40,
-        "prev_clicks": 4,
-        "delta": 900.0
+        "clicks": 49,
+        "prev_clicks": 16,
+        "delta": 206.2
       },
       {
-        "text": "量身規劃流通業-食品業",
-        "clicks": 38,
-        "prev_clicks": 2,
-        "delta": 1800.0
+        "text": "量身規劃製造業-more",
+        "clicks": 47,
+        "prev_clicks": 24,
+        "delta": 95.8
       },
       {
-        "text": "量身規劃流通業-more",
-        "clicks": 35,
-        "prev_clicks": 5,
-        "delta": 600.0
-      },
-      {
-        "text": "量身規劃製造業-金屬業",
-        "clicks": 34,
-        "prev_clicks": 0,
-        "delta": null
+        "text": "量身規劃製造業-工程業",
+        "clicks": 46,
+        "prev_clicks": 25,
+        "delta": 84.0
       },
       {
         "text": "量身規劃企業規模-小微型企業A1",
-        "clicks": 33,
-        "prev_clicks": 2,
-        "delta": 1550.0
+        "clicks": 41,
+        "prev_clicks": 10,
+        "delta": 310.0
       },
       {
-        "text": "量身規劃製造業-汽機車業",
-        "clicks": 31,
+        "text": "AiGP區-製造業Workflow",
+        "clicks": 38,
+        "prev_clicks": 13,
+        "delta": 192.3
+      },
+      {
+        "text": "量身規劃流通業-食品業",
+        "clicks": 35,
+        "prev_clicks": 14,
+        "delta": 150.0
+      },
+      {
+        "text": "量身規劃流通業-more",
+        "clicks": 33,
+        "prev_clicks": 14,
+        "delta": 135.7
+      },
+      {
+        "text": "量身規劃製造業-電子業",
+        "clicks": 33,
+        "prev_clicks": 13,
+        "delta": 153.8
+      },
+      {
+        "text": "量身規劃企業規模-中大型製造業WorkflowERPGP",
+        "clicks": 32,
         "prev_clicks": 6,
-        "delta": 416.7
+        "delta": 433.3
       }
     ],
     "industry_click": [
       {
         "text": "導覽列-解決方案",
-        "clicks": 503,
-        "prev_clicks": 52,
-        "delta": 867.3
+        "clicks": 500,
+        "prev_clicks": 190,
+        "delta": 163.2
       },
       {
         "text": "量身規劃製造業-機械業",
-        "clicks": 65,
-        "prev_clicks": 8,
-        "delta": 712.5
-      },
-      {
-        "text": "量身規劃製造業-工程業",
-        "clicks": 57,
-        "prev_clicks": 8,
-        "delta": 612.5
+        "clicks": 63,
+        "prev_clicks": 20,
+        "delta": 215.0
       },
       {
         "text": "量身規劃製造業-more",
-        "clicks": 48,
-        "prev_clicks": 9,
-        "delta": 433.3
+        "clicks": 47,
+        "prev_clicks": 24,
+        "delta": 95.8
+      },
+      {
+        "text": "量身規劃製造業-工程業",
+        "clicks": 46,
+        "prev_clicks": 25,
+        "delta": 84.0
       },
       {
         "text": "AiGP區-製造業Workflow",
-        "clicks": 41,
-        "prev_clicks": 2,
-        "delta": 1950.0
+        "clicks": 38,
+        "prev_clicks": 13,
+        "delta": 192.3
       },
       {
         "text": "量身規劃流通業-食品業",
-        "clicks": 38,
-        "prev_clicks": 2,
-        "delta": 1800.0
-      },
-      {
-        "text": "量身規劃製造業-金屬業",
-        "clicks": 34,
-        "prev_clicks": 0,
-        "delta": null
-      },
-      {
-        "text": "量身規劃製造業-汽機車業",
-        "clicks": 31,
-        "prev_clicks": 6,
-        "delta": 416.7
+        "clicks": 35,
+        "prev_clicks": 14,
+        "delta": 150.0
       },
       {
         "text": "量身規劃製造業-電子業",
-        "clicks": 31,
-        "prev_clicks": 5,
-        "delta": 520.0
-      },
-      {
-        "text": "量身規劃製造業-塑膠業",
-        "clicks": 29,
-        "prev_clicks": 1,
-        "delta": 2800.0
-      },
-      {
-        "text": "量身規劃流通業-餐飲業",
-        "clicks": 22,
-        "prev_clicks": 4,
-        "delta": 450.0
+        "clicks": 33,
+        "prev_clicks": 13,
+        "delta": 153.8
       },
       {
         "text": "量身規劃企業規模-中大型製造業WorkflowERPGP",
+        "clicks": 32,
+        "prev_clicks": 6,
+        "delta": 433.3
+      },
+      {
+        "text": "量身規劃製造業-塑膠業",
+        "clicks": 26,
+        "prev_clicks": 9,
+        "delta": 188.9
+      },
+      {
+        "text": "量身規劃製造業-汽機車業",
+        "clicks": 25,
+        "prev_clicks": 17,
+        "delta": 47.1
+      },
+      {
+        "text": "量身規劃製造業-金屬業",
+        "clicks": 25,
+        "prev_clicks": 15,
+        "delta": 66.7
+      },
+      {
+        "text": "量身規劃流通業-餐飲業",
         "clicks": 20,
-        "prev_clicks": 0,
-        "delta": null
-      },
-      {
-        "text": "量身規劃製造業-醫材業",
-        "clicks": 18,
-        "prev_clicks": 4,
-        "delta": 350.0
-      },
-      {
-        "text": "量身規劃-分頁依行業選擇",
-        "clicks": 17,
-        "prev_clicks": 3,
-        "delta": 466.7
+        "prev_clicks": 10,
+        "delta": 100.0
       },
       {
         "text": "全方位管理應用-生產製造管理",
+        "clicks": 16,
+        "prev_clicks": 6,
+        "delta": 166.7
+      },
+      {
+        "text": "量身規劃製造業-醫材業",
+        "clicks": 16,
+        "prev_clicks": 10,
+        "delta": 60.0
+      },
+      {
+        "text": "量身規劃-分頁依行業選擇",
         "clicks": 15,
-        "prev_clicks": 0,
-        "delta": null
+        "prev_clicks": 8,
+        "delta": 87.5
       }
     ],
     "click_device": [
       {
         "text": "導覽列-解決方案",
-        "desktop": 482,
-        "mobile": 21,
+        "desktop": 481,
+        "mobile": 19,
         "tablet": 0,
-        "total": 503,
-        "share": 12.1,
-        "desktop_share": 13.5,
-        "mobile_share": 3.5,
+        "total": 500,
+        "share": 12.3,
+        "desktop_share": 13.9,
+        "mobile_share": 3.2,
         "mobile_lean": false
       },
       {
         "text": "導覽列-量身規劃",
-        "desktop": 452,
-        "mobile": 13,
+        "desktop": 432,
+        "mobile": 10,
         "tablet": 0,
-        "total": 465,
-        "share": 11.2,
-        "desktop_share": 12.7,
-        "mobile_share": 2.2,
+        "total": 442,
+        "share": 10.9,
+        "desktop_share": 12.5,
+        "mobile_share": 1.7,
         "mobile_lean": false
       },
       {
         "text": "導覽列-數據智慧化",
-        "desktop": 352,
-        "mobile": 21,
+        "desktop": 364,
+        "mobile": 17,
         "tablet": 0,
-        "total": 373,
-        "share": 9.0,
-        "desktop_share": 9.9,
-        "mobile_share": 3.5,
+        "total": 381,
+        "share": 9.4,
+        "desktop_share": 10.5,
+        "mobile_share": 2.9,
         "mobile_lean": false
       },
       {
         "text": "導覽列-LOGO",
-        "desktop": 298,
+        "desktop": 272,
         "mobile": 0,
         "tablet": 0,
-        "total": 298,
-        "share": 7.2,
-        "desktop_share": 8.4,
+        "total": 272,
+        "share": 6.7,
+        "desktop_share": 7.8,
         "mobile_share": 0.0,
         "mobile_lean": false
       },
       {
         "text": "導覽列-常見問題",
-        "desktop": 222,
-        "mobile": 18,
+        "desktop": 223,
+        "mobile": 16,
         "tablet": 0,
-        "total": 240,
-        "share": 5.8,
-        "desktop_share": 6.2,
-        "mobile_share": 3.0,
+        "total": 239,
+        "share": 5.9,
+        "desktop_share": 6.4,
+        "mobile_share": 2.7,
         "mobile_lean": false
       },
       {
         "text": "常見問題-如何選擇適合我們公司的ERP",
-        "desktop": 173,
-        "mobile": 58,
+        "desktop": 151,
+        "mobile": 60,
         "tablet": 0,
-        "total": 231,
-        "share": 5.6,
-        "desktop_share": 4.9,
-        "mobile_share": 9.8,
+        "total": 211,
+        "share": 5.2,
+        "desktop_share": 4.4,
+        "mobile_share": 10.2,
         "mobile_lean": true
       },
       {
         "text": "常見問題-鼎新ERP的優勢有哪些",
-        "desktop": 147,
-        "mobile": 37,
+        "desktop": 141,
+        "mobile": 46,
         "tablet": 0,
-        "total": 184,
-        "share": 4.4,
+        "total": 187,
+        "share": 4.6,
         "desktop_share": 4.1,
-        "mobile_share": 6.2,
+        "mobile_share": 7.8,
         "mobile_lean": true
       },
       {
         "text": "常見問題-ERP系統導入需要多長的時間",
-        "desktop": 147,
-        "mobile": 35,
+        "desktop": 139,
+        "mobile": 36,
         "tablet": 0,
-        "total": 182,
-        "share": 4.4,
-        "desktop_share": 4.1,
-        "mobile_share": 5.9,
+        "total": 175,
+        "share": 4.3,
+        "desktop_share": 4.0,
+        "mobile_share": 6.1,
         "mobile_lean": true
       },
       {
         "text": "導覽列-預約Demo",
-        "desktop": 127,
+        "desktop": 133,
         "mobile": 3,
         "tablet": 0,
-        "total": 130,
-        "share": 3.1,
-        "desktop_share": 3.6,
+        "total": 136,
+        "share": 3.4,
+        "desktop_share": 3.8,
         "mobile_share": 0.5,
         "mobile_lean": false
       },
       {
-        "text": "常見問題-ERP系統的售後服務與持續升級服務",
-        "desktop": 99,
-        "mobile": 20,
-        "tablet": 0,
-        "total": 119,
-        "share": 2.9,
-        "desktop_share": 2.8,
-        "mobile_share": 3.4,
-        "mobile_lean": true
-      },
-      {
         "text": "常見問題-如何評估ERP導入後的效益",
-        "desktop": 96,
-        "mobile": 19,
+        "desktop": 94,
+        "mobile": 18,
         "tablet": 0,
-        "total": 115,
+        "total": 112,
         "share": 2.8,
         "desktop_share": 2.7,
-        "mobile_share": 3.2,
+        "mobile_share": 3.0,
         "mobile_lean": true
       },
       {
-        "text": "常見問題-什麼是ERP系統",
-        "desktop": 79,
-        "mobile": 22,
+        "text": "常見問題-ERP系統的售後服務與持續升級服務",
+        "desktop": 84,
+        "mobile": 21,
         "tablet": 0,
-        "total": 101,
-        "share": 2.4,
-        "desktop_share": 2.2,
-        "mobile_share": 3.7,
+        "total": 105,
+        "share": 2.6,
+        "desktop_share": 2.4,
+        "mobile_share": 3.6,
         "mobile_lean": true
       },
       {
         "text": "常見問題-ERP系統能確保我的資訊安全嗎",
         "desktop": 82,
-        "mobile": 16,
+        "mobile": 18,
         "tablet": 0,
-        "total": 98,
-        "share": 2.4,
+        "total": 100,
+        "share": 2.5,
+        "desktop_share": 2.4,
+        "mobile_share": 3.0,
+        "mobile_lean": true
+      },
+      {
+        "text": "常見問題-什麼是ERP系統",
+        "desktop": 78,
+        "mobile": 22,
+        "tablet": 0,
+        "total": 100,
+        "share": 2.5,
         "desktop_share": 2.3,
-        "mobile_share": 2.7,
+        "mobile_share": 3.7,
         "mobile_lean": true
       },
       {
         "text": "主視覺-預約諮詢服務",
         "desktop": 52,
-        "mobile": 26,
+        "mobile": 24,
         "tablet": 2,
-        "total": 80,
+        "total": 78,
         "share": 1.9,
         "desktop_share": 1.5,
-        "mobile_share": 4.4,
+        "mobile_share": 4.1,
         "mobile_lean": true
       },
       {
         "text": "量身規劃製造業-機械業",
         "desktop": 47,
-        "mobile": 18,
+        "mobile": 16,
         "tablet": 0,
-        "total": 65,
+        "total": 63,
         "share": 1.6,
-        "desktop_share": 1.3,
-        "mobile_share": 3.0,
+        "desktop_share": 1.4,
+        "mobile_share": 2.7,
         "mobile_lean": true
       }
     ],
     "click_device_totals": {
-      "desktop": 3567,
-      "mobile": 593,
+      "desktop": 3465,
+      "mobile": 591,
       "tablet": 2,
-      "grand": 4162
+      "grand": 4058
     },
     "prev_page": [
       {
         "label": "Google 廣告/搜尋",
-        "views": 3893,
-        "pct": 81.6,
-        "delta": -4.1
+        "views": 4027,
+        "pct": 77.2,
+        "delta": -2.9
       },
       {
         "label": "其他外部",
-        "views": 579,
-        "pct": 12.1,
-        "delta": 30.4
+        "views": 884,
+        "pct": 17.0,
+        "delta": 89.7
       },
       {
         "label": "站內其他頁導入",
-        "views": 180,
-        "pct": 3.8,
-        "delta": -17.1
+        "views": 169,
+        "pct": 3.2,
+        "delta": -27.5
       },
       {
         "label": "erp-all 本頁(重載/錨點)",
-        "views": 86,
-        "pct": 1.8,
-        "delta": -23.2
+        "views": 80,
+        "pct": 1.5,
+        "delta": -40.3
       },
       {
         "label": "Bing 搜尋",
-        "views": 31,
-        "pct": 0.7,
-        "delta": 416.7
+        "views": 54,
+        "pct": 1.0,
+        "delta": 671.4
       }
     ],
     "prev_grouped": [
       {
         "group": "外部來源",
-        "views": 3720,
-        "pct": 78.0,
-        "count": 23,
+        "views": 3943,
+        "pct": 75.6,
+        "count": 24,
         "items": [
           {
             "label": "www.google.com",
-            "views": 3556,
-            "delta": -3.1
+            "views": 3451,
+            "delta": -8.0
+          },
+          {
+            "label": "partnerads.ysm.yahoo.net",
+            "views": 305,
+            "delta": null
           },
           {
             "label": "syndicatedsearch.goog",
-            "views": 57,
-            "delta": -14.9
+            "views": 55,
+            "delta": -21.4
           },
           {
             "label": "www.bing.com",
-            "views": 28,
-            "delta": 1300.0
+            "views": 47,
+            "delta": 2250.0
           },
           {
             "label": "www.google.com.tw",
-            "views": 12,
-            "delta": -67.6
+            "views": 14,
+            "delta": -56.2
           },
           {
-            "label": "youtube.com",
-            "views": 7,
-            "delta": 600.0
+            "label": "www.innotrust.com.tw",
+            "views": 11,
+            "delta": 120.0
           },
           {
-            "label": "m.facebook.com",
-            "views": 6,
-            "delta": null
-          },
-          {
-            "label": "dlc.chihlee.edu.tw",
-            "views": 6,
-            "delta": null
+            "label": "www.google.com.hk",
+            "views": 8,
+            "delta": 60.0
           },
           {
             "label": "tw.search.yahoo.com",
-            "views": 6,
-            "delta": 500.0
-          }
-        ]
-      },
-      {
-        "group": "直接進入",
-        "views": 519,
-        "pct": 10.9,
-        "count": 1,
-        "items": [
-          {
-            "label": "直接 / App 內開啟",
-            "views": 519,
-            "delta": 30.7
+            "views": 7,
+            "delta": 600.0
           }
         ]
       },
       {
         "group": "erp-all 本頁",
-        "views": 331,
-        "pct": 6.9,
+        "views": 567,
+        "pct": 10.9,
         "count": 1,
         "items": [
           {
             "label": "erp-all 本頁(重載/錨點)",
-            "views": 331,
-            "delta": -13.4
+            "views": 567,
+            "delta": 38.3
+          }
+        ]
+      },
+      {
+        "group": "直接進入",
+        "views": 517,
+        "pct": 9.9,
+        "count": 1,
+        "items": [
+          {
+            "label": "直接 / App 內開啟",
+            "views": 517,
+            "delta": 23.4
           }
         ]
       },
       {
         "group": "站內其他頁",
-        "views": 199,
-        "pct": 4.2,
-        "count": 62,
+        "views": 187,
+        "pct": 3.6,
+        "count": 59,
         "items": [
           {
             "label": "鼎新數智-引領企業數位化轉型",
-            "views": 69,
-            "delta": -38.9
-          },
-          {
-            "label": "鼎新Cosmos ERP AiGP：流通業專屬的AI升級ERP方案",
-            "views": 10,
-            "delta": 900.0
-          },
-          {
-            "label": "SmartERP：專為中小企業打造的AI ERP，模組彈性擴充管理超",
-            "views": 10,
-            "delta": 100.0
+            "views": 67,
+            "delta": -41.7
           },
           {
             "label": "鼎新Workflow ERP AiGP：為製造業量身打造的AI升級E",
-            "views": 10,
-            "delta": 400.0
+            "views": 9,
+            "delta": 50.0
           },
           {
-            "label": "案例",
-            "views": 8,
-            "delta": 166.7
+            "label": "SmartERP：專為中小企業打造的AI ERP，模組彈性擴充管理超",
+            "views": 9,
+            "delta": 12.5
           },
           {
             "label": "鼎新服務雲",
-            "views": 4,
-            "delta": 0.0
+            "views": 7,
+            "delta": 40.0
+          },
+          {
+            "label": "案例",
+            "views": 6,
+            "delta": 20.0
+          },
+          {
+            "label": "/erp-to-ai",
+            "views": 5,
+            "delta": 400.0
           },
           {
             "label": "公司簡介",
-            "views": 3,
+            "views": 4,
             "delta": null
           },
           {
-            "label": "感謝填答-企業診斷 線上管理健檢",
-            "views": 3,
-            "delta": null
+            "label": "製造業轉向少量多樣接單與工廠作業標準化建立，鼎新帶您脫穎而出",
+            "views": 4,
+            "delta": 300.0
           }
         ]
       }
@@ -1623,163 +1623,163 @@
     "next_page": [
       {
         "label": "行業方案頁",
-        "views": 703,
-        "pct": 50.9,
-        "delta": -15.4
+        "views": 646,
+        "pct": 49.4,
+        "delta": -22.3
       },
       {
         "label": "首頁",
-        "views": 345,
-        "pct": 25.0,
-        "delta": -9.0
+        "views": 311,
+        "pct": 23.8,
+        "delta": -19.2
       },
       {
         "label": "軟體/WF 頁",
-        "views": 151,
-        "pct": 10.9,
-        "delta": -20.1
+        "views": 168,
+        "pct": 12.9,
+        "delta": -4.5
       },
       {
         "label": "其他頁",
-        "views": 85,
-        "pct": 6.2,
-        "delta": 2.4
+        "views": 83,
+        "pct": 6.4,
+        "delta": -3.5
       },
       {
         "label": "聯絡表單",
-        "views": 57,
-        "pct": 4.1,
-        "delta": 21.3
+        "views": 56,
+        "pct": 4.3,
+        "delta": 9.8
       },
       {
         "label": "留資完成頁",
-        "views": 40,
-        "pct": 2.9,
-        "delta": -14.9
+        "views": 43,
+        "pct": 3.3,
+        "delta": -10.4
       }
     ],
     "routing": {
-      "to_industry_pct": 50.9,
-      "to_form_pct": 7.0,
-      "design_pct": 57.9,
-      "total_next_views": 1381,
-      "stayed_on_page": 331,
-      "dropped_nonlink": 24,
+      "to_industry_pct": 49.4,
+      "to_form_pct": 7.6,
+      "design_pct": 57.0,
+      "total_next_views": 1307,
+      "stayed_on_page": 567,
+      "dropped_nonlink": 26,
       "whitelist_used": true,
       "whitelist_size": 53
     },
     "next_grouped": [
       {
         "group": "行業方案頁",
-        "views": 703,
-        "pct": 50.9,
+        "views": 646,
+        "pct": 49.4,
         "count": 20,
         "items": [
           {
             "label": "SmartERP：專為中小企業打造的AI ERP，模組彈性擴充管理超",
             "path": "/dsc/solution/WB002839/AISM",
-            "views": 121,
-            "delta": -23.4,
+            "views": 117,
+            "delta": -28.7,
             "industry": true
           },
           {
             "label": "鼎新機械設備業解決方案：95%高附加價值客製化， 競爭力藏在專案的每",
             "path": "/dsc/solution/WB002476/WB00247601",
-            "views": 68,
-            "delta": 19.3,
-            "industry": true
-          },
-          {
-            "label": "工程業管理重要的是：掌握工程進度與工程損益",
-            "path": "/dsc/solution/WB002899/WB00289901",
-            "views": 68,
-            "delta": 0.0,
-            "industry": true
-          },
-          {
-            "label": "電子業邁向少量多樣客製化訂單與轉型車用醫療市場之後..",
-            "path": "/dsc/solution/WB002513/WB00251301",
-            "views": 59,
-            "delta": -14.5,
+            "views": 65,
+            "delta": 16.1,
             "industry": true
           },
           {
             "label": "製造業轉向少量多樣接單與工廠作業標準化建立，鼎新帶您脫穎而出",
             "path": "/dsc/solution/WB002783/WB00278301",
-            "views": 58,
-            "delta": -22.7,
+            "views": 62,
+            "delta": -22.5,
+            "industry": true
+          },
+          {
+            "label": "電子業邁向少量多樣客製化訂單與轉型車用醫療市場之後..",
+            "path": "/dsc/solution/WB002513/WB00251301",
+            "views": 56,
+            "delta": -8.2,
+            "industry": true
+          },
+          {
+            "label": "工程業管理重要的是：掌握工程進度與工程損益",
+            "path": "/dsc/solution/WB002899/WB00289901",
+            "views": 54,
+            "delta": -22.9,
             "industry": true
           },
           {
             "label": "食安問題、法令規範！食品業者從原物料、半成品到成品該如何因應！",
             "path": "/dsc/solution/WB002553/WB00255301",
-            "views": 41,
-            "delta": -12.8,
+            "views": 39,
+            "delta": -22.0,
             "industry": true
           },
           {
             "label": "流通業管理不只有批發零售，更有門市、網購、經銷、KA及觀光工廠",
             "path": "/dsc/solution/WB002675/WB00267501",
-            "views": 39,
-            "delta": -30.4,
+            "views": 36,
+            "delta": -30.8,
             "industry": true
           },
           {
-            "label": "金屬製品行業面臨市場的變動、生產進度及達交時間難掌握等許多的挑戰，該",
-            "path": "/dsc/solution/WB002953/WB00295301",
-            "views": 34,
-            "delta": 13.3,
+            "label": "塑膠行業解決方案：用有限資源放大競爭力",
+            "path": "/dsc/solution/WB002554/WB00255401",
+            "views": 27,
+            "delta": 28.6,
             "industry": true
           }
         ]
       },
       {
         "group": "首頁",
-        "views": 345,
-        "pct": 25.0,
+        "views": 311,
+        "pct": 23.8,
         "count": 1,
         "items": [
           {
             "label": "鼎新數智-引領企業數位化轉型",
             "path": "/",
-            "views": 345,
-            "delta": -9.0,
+            "views": 311,
+            "delta": -19.2,
             "industry": false
           }
         ]
       },
       {
         "group": "軟體/WF 頁",
-        "views": 151,
-        "pct": 10.9,
+        "views": 168,
+        "pct": 12.9,
         "count": 6,
         "items": [
           {
             "label": "鼎新Workflow ERP AiGP：為製造業量身打造的AI升級E",
             "path": "/software/WF/WF",
-            "views": 69,
-            "delta": -25.0,
+            "views": 79,
+            "delta": -3.7,
             "industry": false
           },
           {
             "label": "鼎新EasyFlow：運用BPM開啟企業智慧流程",
             "path": "/software/BPM/BPM",
-            "views": 26,
-            "delta": 8.3,
+            "views": 27,
+            "delta": 17.4,
             "industry": false
           },
           {
             "label": "鼎新Cosmos ERP AiGP：流通業專屬的AI升級ERP方案",
             "path": "/software/CM/CM",
-            "views": 21,
-            "delta": -22.2,
+            "views": 24,
+            "delta": 0.0,
             "industry": false
           },
           {
             "label": "T100 企業智慧ERP雲平台",
             "path": "/software/T100/",
-            "views": 17,
-            "delta": -54.1,
+            "views": 21,
+            "delta": -40.0,
             "industry": false
           },
           {
@@ -1792,254 +1792,205 @@
           {
             "label": "CRM 客戶關係管理",
             "path": "/software/708.html",
-            "views": 8,
-            "delta": 166.7,
+            "views": 7,
+            "delta": 16.7,
             "industry": false
           }
         ]
       },
       {
         "group": "其他頁",
-        "views": 85,
-        "pct": 6.2,
+        "views": 83,
+        "pct": 6.4,
         "count": 5,
         "items": [
           {
             "label": "ERP系統廠商評估、導入流程與品牌比較完整指南",
             "path": "/blog/erp/3247.html",
-            "views": 32,
-            "delta": 18.5,
-            "industry": false
-          },
-          {
-            "label": "生產製造管理",
-            "path": "/erp/manufacture",
-            "views": 17,
-            "delta": 21.4,
+            "views": 28,
+            "delta": -9.7,
             "industry": false
           },
           {
             "label": "進銷存管理系統",
             "path": "/ERP/inventory.html",
-            "views": 14,
-            "delta": -30.0,
+            "views": 20,
+            "delta": 53.8,
+            "industry": false
+          },
+          {
+            "label": "生產製造管理",
+            "path": "/erp/manufacture",
+            "views": 16,
+            "delta": -5.9,
             "industry": false
           },
           {
             "label": "ERP是什麼？企業資源規劃完整解析：核心模組、應用場景、AI趨勢一次",
             "path": "/blog/erp/3581.html",
-            "views": 11,
-            "delta": -31.2,
+            "views": 12,
+            "delta": -29.4,
             "industry": false
           },
           {
             "label": "找不到網頁",
             "path": "/blog/erp/index/3247.html",
-            "views": 11,
-            "delta": 83.3,
+            "views": 7,
+            "delta": -12.5,
             "industry": false
           }
         ]
       },
       {
         "group": "聯絡表單",
-        "views": 57,
-        "pct": 4.1,
+        "views": 56,
+        "pct": 4.3,
         "count": 1,
         "items": [
           {
             "label": "產品與服務諮詢",
             "path": "/contact/eform",
-            "views": 57,
-            "delta": 21.3,
+            "views": 56,
+            "delta": 9.8,
             "industry": false
           }
         ]
       },
       {
         "group": "留資完成頁",
-        "views": 40,
-        "pct": 2.9,
+        "views": 43,
+        "pct": 3.3,
         "count": 1,
         "items": [
           {
             "label": "產品與服務諮詢資訊已送出",
             "path": "/contact/success/index.html",
-            "views": 40,
-            "delta": -14.9,
+            "views": 43,
+            "delta": -10.4,
             "industry": false
           }
         ]
       }
     ],
     "ads": {
-      "sessions": 3298,
-      "leads": 30,
-      "lead_rate": 0.91,
-      "share_pct": 75.4,
+      "sessions": 3561,
+      "leads": 27,
+      "lead_rate": 0.76,
+      "share_pct": 77.6,
       "prev": {
-        "sessions": 3554,
-        "leads": 35,
-        "lead_rate": 0.98
+        "sessions": 3562,
+        "leads": 40,
+        "lead_rate": 1.12
       },
       "delta": {
-        "sessions": -7.2,
-        "lead_rate_pp": -0.07
+        "sessions": -0.0,
+        "lead_rate_pp": -0.36
       },
       "campaigns": [
         {
           "campaign": "A1-01GS品牌字詞_諮詢",
-          "sessions": 1772,
-          "leads": 20,
-          "lead_rate": 1.13,
-          "delta": -17.7,
-          "lead_rate_delta_pp": -0.08
+          "sessions": 1739,
+          "leads": 18,
+          "lead_rate": 1.04,
+          "delta": -14.2,
+          "lead_rate_delta_pp": -0.59
         },
         {
           "campaign": "A1-02GS關鍵產品字詞_諮詢",
-          "sessions": 850,
-          "leads": 7,
-          "lead_rate": 0.82,
-          "delta": -16.6,
-          "lead_rate_delta_pp": 0.04
+          "sessions": 798,
+          "leads": 5,
+          "lead_rate": 0.63,
+          "delta": -24.6,
+          "lead_rate_delta_pp": 0.06
         },
         {
           "campaign": "A1-10GS ERP競品字_諮詢",
-          "sessions": 502,
+          "sessions": 491,
           "leads": 0,
           "lead_rate": 0.0,
-          "delta": 180.4,
-          "lead_rate_delta_pp": 0.0
-        },
-        {
-          "campaign": "A1-03GS延伸產品字詞-諮詢",
-          "sessions": 32,
-          "leads": 0,
-          "lead_rate": 0.0,
-          "delta": -11.1,
-          "lead_rate_delta_pp": -2.78
-        },
-        {
-          "campaign": "A1-01GS品牌字詞",
-          "sessions": 31,
-          "leads": 0,
-          "lead_rate": 0.0,
-          "delta": -18.4,
+          "delta": 57.9,
           "lead_rate_delta_pp": 0.0
         },
         {
           "campaign": "A1-01YS品牌字詞-諮詢",
-          "sessions": 24,
+          "sessions": 342,
           "leads": 3,
-          "lead_rate": 12.5,
-          "delta": 242.9,
-          "lead_rate_delta_pp": 12.5
+          "lead_rate": 0.88,
+          "delta": 4175.0,
+          "lead_rate_delta_pp": 0.88
+        },
+        {
+          "campaign": "A1-01GS品牌字詞",
+          "sessions": 38,
+          "leads": 0,
+          "lead_rate": 0.0,
+          "delta": 2.7,
+          "lead_rate_delta_pp": 0.0
+        },
+        {
+          "campaign": "A1-03GS延伸產品字詞-諮詢",
+          "sessions": 31,
+          "leads": 0,
+          "lead_rate": 0.0,
+          "delta": -13.9,
+          "lead_rate_delta_pp": -2.78
         },
         {
           "campaign": "A1-02GS關鍵產品字詞-AiSM_諮詢",
-          "sessions": 16,
+          "sessions": 19,
+          "leads": 1,
+          "lead_rate": 5.26,
+          "delta": 18.8,
+          "lead_rate_delta_pp": 5.26
+        },
+        {
+          "campaign": "C1-20GS-企業AI助理_諮詢_241118-",
+          "sessions": 10,
           "leads": 0,
           "lead_rate": 0.0,
-          "delta": 6.7,
+          "delta": 66.7,
           "lead_rate_delta_pp": 0.0
         },
         {
           "campaign": "(not set)",
-          "sessions": 10,
-          "leads": 0,
-          "lead_rate": 0.0,
-          "delta": 11.1,
-          "lead_rate_delta_pp": 0.0
-        },
-        {
-          "campaign": "C1-20GS-企業AI助理_諮詢_241118-",
-          "sessions": 9,
-          "leads": 0,
-          "lead_rate": 0.0,
-          "delta": 0.0,
-          "lead_rate_delta_pp": 0.0
-        },
-        {
-          "campaign": "A2-3_09GS行業字詞-工程_諮詢",
           "sessions": 7,
           "leads": 0,
           "lead_rate": 0.0,
           "delta": -36.4,
+          "lead_rate_delta_pp": 0.0
+        },
+        {
+          "campaign": "A1-03GS延伸產品字詞-HRM人資管理系統_諮詢",
+          "sessions": 4,
+          "leads": 0,
+          "lead_rate": 0.0,
+          "delta": 33.3,
           "lead_rate_delta_pp": 0.0
         }
       ]
     },
     "windows": {
       "current": [
-        "2026-06-09",
-        "2026-07-06"
+        "2026-06-16",
+        "2026-07-13"
       ],
       "previous": [
-        "2026-05-12",
-        "2026-06-08"
+        "2026-05-19",
+        "2026-06-15"
       ]
     }
   },
   "gsc": {
     "available": true,
     "range": [
-      "2026-06-07",
-      "2026-07-04"
+      "2026-06-14",
+      "2026-07-11"
     ],
     "prev_range": [
-      "2026-05-10",
-      "2026-06-06"
+      "2026-05-17",
+      "2026-06-13"
     ],
     "daily": [
-      {
-        "date": "2026-04-06",
-        "clicks": 3,
-        "impressions": 286,
-        "ctr": 1.05,
-        "position": 2.1
-      },
-      {
-        "date": "2026-04-07",
-        "clicks": 4,
-        "impressions": 294,
-        "ctr": 1.36,
-        "position": 2.6
-      },
-      {
-        "date": "2026-04-08",
-        "clicks": 5,
-        "impressions": 325,
-        "ctr": 1.54,
-        "position": 2.0
-      },
-      {
-        "date": "2026-04-09",
-        "clicks": 0,
-        "impressions": 265,
-        "ctr": 0,
-        "position": 2.5
-      },
-      {
-        "date": "2026-04-10",
-        "clicks": 4,
-        "impressions": 97,
-        "ctr": 4.12,
-        "position": 3.2
-      },
-      {
-        "date": "2026-04-11",
-        "clicks": 0,
-        "impressions": 34,
-        "ctr": 0,
-        "position": 4.8
-      },
-      {
-        "date": "2026-04-12",
-        "clicks": 3,
-        "impressions": 73,
-        "ctr": 4.11,
-        "position": 6.0
-      },
       {
         "date": "2026-04-13",
         "clicks": 4,
@@ -2620,96 +2571,121 @@
         "impressions": 177,
         "ctr": 5.65,
         "position": 9.1
+      },
+      {
+        "date": "2026-07-05",
+        "clicks": 23,
+        "impressions": 328,
+        "ctr": 7.01,
+        "position": 3.8
+      },
+      {
+        "date": "2026-07-06",
+        "clicks": 16,
+        "impressions": 502,
+        "ctr": 3.19,
+        "position": 3.9
+      },
+      {
+        "date": "2026-07-07",
+        "clicks": 12,
+        "impressions": 461,
+        "ctr": 2.6,
+        "position": 4.0
+      },
+      {
+        "date": "2026-07-08",
+        "clicks": 18,
+        "impressions": 555,
+        "ctr": 3.24,
+        "position": 3.2
+      },
+      {
+        "date": "2026-07-09",
+        "clicks": 14,
+        "impressions": 400,
+        "ctr": 3.5,
+        "position": 3.9
+      },
+      {
+        "date": "2026-07-10",
+        "clicks": 8,
+        "impressions": 247,
+        "ctr": 3.24,
+        "position": 6.8
+      },
+      {
+        "date": "2026-07-11",
+        "clicks": 8,
+        "impressions": 189,
+        "ctr": 4.23,
+        "position": 5.7
       }
     ],
     "queries": [
       {
         "query": "鼎新erp",
-        "clicks": 142,
-        "impressions": 2989,
-        "ctr": 4.75,
-        "position": 1.8,
-        "delta": -4.7
-      },
-      {
-        "query": "鼎新 erp",
-        "clicks": 20,
-        "impressions": 356,
-        "ctr": 5.62,
-        "position": 1.6,
-        "delta": 17.6
+        "clicks": 168,
+        "impressions": 3073,
+        "ctr": 5.47,
+        "position": 1.7,
+        "delta": 3.1
       },
       {
         "query": "頂新erp",
-        "clicks": 15,
-        "impressions": 185,
-        "ctr": 8.11,
-        "position": 1.4,
-        "delta": 15.4
+        "clicks": 21,
+        "impressions": 206,
+        "ctr": 10.19,
+        "position": 1.3,
+        "delta": 50.0
+      },
+      {
+        "query": "鼎新 erp",
+        "clicks": 21,
+        "impressions": 321,
+        "ctr": 6.54,
+        "position": 1.5,
+        "delta": -4.5
       },
       {
         "query": "鼎新erp系統",
-        "clicks": 15,
-        "impressions": 351,
-        "ctr": 4.27,
+        "clicks": 12,
+        "impressions": 353,
+        "ctr": 3.4,
         "position": 1.9,
-        "delta": 0.0
+        "delta": -29.4
       },
       {
         "query": "erp",
-        "clicks": 10,
-        "impressions": 1348,
-        "ctr": 0.74,
-        "position": 8.2,
-        "delta": 25.0
+        "clicks": 9,
+        "impressions": 1254,
+        "ctr": 0.72,
+        "position": 8.1,
+        "delta": -30.8
       },
       {
         "query": "erp 鼎新",
         "clicks": 8,
-        "impressions": 153,
-        "ctr": 5.23,
+        "impressions": 152,
+        "ctr": 5.26,
         "position": 1.5,
-        "delta": -11.1
+        "delta": -33.3
       },
       {
         "query": "鼎新erp是什麼",
         "clicks": 8,
-        "impressions": 207,
-        "ctr": 3.86,
-        "position": 2.8,
-        "delta": 60.0
-      },
-      {
-        "query": "頂新 erp",
-        "clicks": 5,
-        "impressions": 79,
-        "ctr": 6.33,
-        "position": 1.3,
+        "impressions": 208,
+        "ctr": 3.85,
+        "position": 2.5,
         "delta": 0.0
       },
       {
-        "query": "erp系統 鼎新",
-        "clicks": 3,
-        "impressions": 40,
-        "ctr": 7.5,
-        "position": 2.0,
-        "delta": 50.0
-      },
-      {
-        "query": "erp鼎新系統",
-        "clicks": 3,
-        "impressions": 35,
-        "ctr": 8.57,
-        "position": 1.9,
-        "delta": 50.0
-      },
-      {
-        "query": "鼎新erp系統是什麼",
-        "clicks": 3,
-        "impressions": 30,
-        "ctr": 10.0,
-        "position": 2.1,
-        "delta": null
+        "query": "頂新 erp",
+        "clicks": 6,
+        "impressions": 84,
+        "ctr": 7.14,
+        "position": 1.2,
+        "delta": 20.0
       },
       {
         "query": "erp all",
@@ -2722,65 +2698,113 @@
       {
         "query": "erp系統",
         "clicks": 2,
-        "impressions": 319,
-        "ctr": 0.63,
-        "position": 9.2,
-        "delta": 100.0
+        "impressions": 376,
+        "ctr": 0.53,
+        "position": 8.2,
+        "delta": 0.0
       },
       {
-        "query": "鼎新系統",
+        "query": "erp系統 鼎新",
         "clicks": 2,
-        "impressions": 225,
-        "ctr": 0.89,
-        "position": 5.2,
+        "impressions": 38,
+        "ctr": 5.26,
+        "position": 2.0,
+        "delta": 0.0
+      },
+      {
+        "query": "鼎新數智",
+        "clicks": 2,
+        "impressions": 94,
+        "ctr": 2.13,
+        "position": 3.3,
+        "delta": null
+      },
+      {
+        "query": "erp 是什麼",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 100,
+        "position": 3,
+        "delta": null
+      },
+      {
+        "query": "erp 系統",
+        "clicks": 1,
+        "impressions": 42,
+        "ctr": 2.38,
+        "position": 15.1,
         "delta": null
       },
       {
         "query": "erp 頂新",
         "clicks": 1,
-        "impressions": 17,
-        "ctr": 5.88,
-        "position": 1.6,
+        "impressions": 15,
+        "ctr": 6.67,
+        "position": 1.8,
         "delta": 0.0
       },
       {
         "query": "erp 鼎新系統",
         "clicks": 1,
-        "impressions": 13,
-        "ctr": 7.69,
-        "position": 1.7,
+        "impressions": 15,
+        "ctr": 6.67,
+        "position": 1.8,
         "delta": null
       },
       {
-        "query": "erp鼎新",
+        "query": "erp是什麼",
         "clicks": 1,
-        "impressions": 47,
-        "ctr": 2.13,
-        "position": 1.7,
-        "delta": 0.0
+        "impressions": 17,
+        "ctr": 5.88,
+        "position": 3.1,
+        "delta": null
+      },
+      {
+        "query": "erp系統是什麼",
+        "clicks": 1,
+        "impressions": 9,
+        "ctr": 11.11,
+        "position": 3.3,
+        "delta": null
+      },
+      {
+        "query": "erp鼎新系統",
+        "clicks": 1,
+        "impressions": 26,
+        "ctr": 3.85,
+        "position": 2.1,
+        "delta": -66.7
       },
       {
         "query": "鼎新",
         "clicks": 1,
-        "impressions": 85,
-        "ctr": 1.18,
-        "position": 4.4,
+        "impressions": 171,
+        "ctr": 0.58,
+        "position": 4.0,
         "delta": null
+      },
+      {
+        "query": "鼎新erp系統是什麼",
+        "clicks": 1,
+        "impressions": 34,
+        "ctr": 2.94,
+        "position": 1.8,
+        "delta": -50.0
+      },
+      {
+        "query": "鼎新系統",
+        "clicks": 1,
+        "impressions": 411,
+        "ctr": 0.24,
+        "position": 4.9,
+        "delta": 0.0
       },
       {
         "query": "鼎新系統erp",
         "clicks": 1,
-        "impressions": 40,
-        "ctr": 2.5,
-        "position": 1.4,
-        "delta": null
-      },
-      {
-        "query": "(erp",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 5,
+        "impressions": 44,
+        "ctr": 2.27,
+        "position": 1.5,
         "delta": null
       },
       {
@@ -2798,48 +2822,24 @@
         "ctr": 0,
         "position": 20,
         "delta": null
-      },
-      {
-        "query": "ai erp系統",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 4,
-        "delta": null
-      },
-      {
-        "query": "aigp",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 10,
-        "delta": null
-      },
-      {
-        "query": "aktu erp",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 39,
-        "delta": null
       }
     ],
     "totals": {
-      "clicks": 272,
-      "impressions": 8626,
-      "ctr": 3.15,
-      "position": 4.9,
+      "clicks": 299,
+      "impressions": 9276,
+      "ctr": 3.22,
+      "position": 4.7,
       "prev": {
-        "clicks": 260,
-        "impressions": 8707,
-        "ctr": 2.99,
+        "clicks": 307,
+        "impressions": 9386,
+        "ctr": 3.27,
         "position": 4.2
       },
       "delta": {
-        "clicks": 4.6,
-        "impressions": -0.9,
-        "ctr_pp": 0.16,
-        "position_pp": 0.7
+        "clicks": -2.6,
+        "impressions": -1.2,
+        "ctr_pp": -0.05,
+        "position_pp": 0.5
       }
     }
   }
