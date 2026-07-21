@@ -41,6 +41,18 @@ header.top h1{font-size:26px; font-weight:700}
 .pill.live{background:var(--accent-sub); color:var(--accent)}
 .banner{background:#FFF7E6; border:1px solid #FEB72B55; color:#7A4D00; border-radius:8px; padding:10px 14px; font-size:13px; margin:14px 0}
 
+/* date filter */
+.datefilter{display:flex; flex-wrap:wrap; align-items:center; gap:10px; background:var(--s1); border:1px solid var(--border); border-radius:8px; padding:10px 14px; margin:14px 0}
+.df-presets{display:flex; flex-wrap:wrap; gap:6px}
+.df-btn{border:1px solid var(--border2); background:#fff; color:var(--t2); border-radius:6px; padding:5px 12px; font-size:12px; font-weight:500; cursor:pointer; font-family:inherit}
+.df-btn:hover{border-color:var(--accent); color:var(--accent)}
+.df-btn.active{background:var(--accent); border-color:var(--accent); color:#fff}
+.df-custom{display:flex; align-items:center; gap:6px; font-size:12px; color:var(--t2)}
+.df-custom input[type=date]{border:1px solid var(--border2); border-radius:6px; padding:4px 8px; font-size:12px; font-family:inherit; color:var(--t1)}
+.df-apply{border:1px solid var(--accent); background:var(--accent); color:#fff; border-radius:6px; padding:5px 14px; font-size:12px; font-weight:500; cursor:pointer; font-family:inherit}
+.df-apply:hover{opacity:.9}
+.df-current{color:var(--t3); font-size:12px; margin-left:auto}
+
 /* section */
 section{margin-top:32px}
 .sec-h{display:flex; align-items:baseline; gap:10px; margin-bottom:14px}
@@ -113,9 +125,19 @@ footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border); co
 
   <div id="banner-slot"></div>
 
+  <!-- 日期篩選器：套用後整頁（KPI/趨勢/來源/裝置/廣告/點擊/分流樞紐/GSC）都會依所選範圍重新計算 -->
+  <div class="datefilter">
+    <div class="df-presets" id="df-presets"></div>
+    <div class="df-custom">
+      <input type="date" id="df-start"> ～ <input type="date" id="df-end">
+      <button class="df-apply" id="df-apply">套用</button>
+    </div>
+    <div class="df-current" id="df-current"></div>
+  </div>
+
   <!-- KPI -->
   <section>
-    <div class="sec-h"><h2>核心 KPI</h2><span class="note">近 28 天 vs 前一個 28 天　｜　漲跌單位：計數(訪客/點擊/曝光)用 <b>%</b> 相對變化、比率(留資率/CTR/互動率)用 <b>pp</b> 百分點</span></div>
+    <div class="sec-h"><h2>核心 KPI</h2><span class="note" id="kpi-note">漲跌單位：計數(訪客/點擊/曝光)用 <b>%</b> 相對變化、比率(留資率/CTR/互動率)用 <b>pp</b> 百分點</span></div>
     <div class="kpis" id="kpis"><div class="empty">載入中…</div></div>
   </section>
 
@@ -130,7 +152,7 @@ footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border); co
 
   <!-- 來源 / 裝置 -->
   <section>
-    <div class="sec-h"><h2>流量來源與裝置</h2><span class="note">近 28 天，數字後為 vs 前 28 天</span></div>
+    <div class="sec-h"><h2>流量來源與裝置</h2><span class="note" id="note-source"></span></div>
     <div class="grid2">
       <div class="panel"><h3>流量來源（工作階段）</h3><div id="source-mix"></div></div>
       <div class="panel"><h3>各裝置留資率 <span style="font-weight:400;color:var(--t3);font-size:12px">— 行動是改寫重點</span></h3><div id="device-split"></div></div>
@@ -139,14 +161,14 @@ footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border); co
 
   <!-- 廣告表現 -->
   <section>
-    <div class="sec-h"><h2>廣告表現</h2><span class="note">付費(cpc)流量，近 28 天 vs 前 28 天</span></div>
+    <div class="sec-h"><h2>廣告表現</h2><span class="note" id="note-ads"></span></div>
     <div id="ads-headline"></div>
     <div class="panel" style="margin-top:16px"><h3>各檔期表現 <span style="font-weight:400;color:var(--t3);font-size:12px">— 工作階段 × 留資率</span></h3><div id="ads-campaigns"></div></div>
   </section>
 
   <!-- 點擊 -->
   <section>
-    <div class="sec-h"><h2>頁面點擊</h2><span class="note">content_click，近 28 天，數字後為 vs 前 28 天</span></div>
+    <div class="sec-h"><h2>頁面點擊</h2><span class="note" id="note-click"></span></div>
     <div class="grid2">
       <div class="panel"><h3>行業方案分流點擊 <span style="font-weight:400;color:var(--t3);font-size:12px">— report：最強催化劑</span></h3><div id="industry-click"></div></div>
       <div class="panel"><h3>整體點擊排行</h3><div id="content-click"></div></div>
@@ -156,7 +178,7 @@ footer{margin-top:48px; padding-top:20px; border-top:1px solid var(--border); co
 
   <!-- 分流樞紐 -->
   <section>
-    <div class="sec-h"><h2>分流樞紐：前一頁 / 後一頁</h2><span class="note">近 28 天，數字後為 vs 前 28 天</span></div>
+    <div class="sec-h"><h2>分流樞紐：前一頁 / 後一頁</h2><span class="note" id="note-routing"></span></div>
     <div id="routing-headline"></div>
     <div id="home-leak"></div>
     <div class="grid2" style="margin-top:16px">
@@ -184,12 +206,60 @@ const esc = s => String(s).replace(/[&<>]/g, c=>({'&':'&amp;','<':'&lt;','>':'&g
 function sum(arr, k){ return arr.reduce((a,b)=>a+(b[k]||0),0); }
 function avg(arr, k){ const v=arr.filter(x=>x[k]||x[k]===0); return v.length? sum(v,k)/v.length:0; }
 
-// 近 N 天 / 前 N 天切窗
-function splitWindows(daily, n){
-  const cur = daily.slice(-n);
-  const prev = daily.slice(-2*n, -n);
-  return {cur, prev};
+// ---- 日期範圍工具：純字串比較（ISO 日期可字典序排序），跨日運算才轉 Date ----
+function addDaysISO(iso, n){
+  const d = new Date(iso+'T00:00:00Z');
+  d.setUTCDate(d.getUTCDate()+n);
+  return d.toISOString().slice(0,10);
 }
+function dayCountISO(start, end){
+  const a = new Date(start+'T00:00:00Z'), b = new Date(end+'T00:00:00Z');
+  return Math.round((b-a)/86400000)+1;
+}
+function prevRangeOf(start, end){
+  const n = dayCountISO(start, end);
+  const prevEnd = addDaysISO(start, -1);
+  const prevStart = addDaysISO(prevEnd, -(n-1));
+  return [prevStart, prevEnd];
+}
+function relDelta(cur, prev){
+  if(!prev) return null;
+  return Math.round((cur-prev)/prev*1000)/10;
+}
+function r2(x){ return Math.round(x*100)/100; }
+function r1(x){ return Math.round(x*10)/10; }
+
+// {date: {key: val}} → 加總指定範圍內每個 key 的 val
+function aggRange2(dict, start, end){
+  const out = {};
+  for(const d in dict){
+    if(d<start || d>end) continue;
+    const day = dict[d];
+    for(const k in day) out[k] = (out[k]||0) + day[k];
+  }
+  return out;
+}
+// {date: {key1: {key2: val}}} → 加總指定範圍
+function aggRange3(dict, start, end){
+  const out = {};
+  for(const d in dict){
+    if(d<start || d>end) continue;
+    const day = dict[d];
+    for(const k1 in day){
+      const inner = out[k1] || (out[k1]={});
+      const day2 = day[k1];
+      for(const k2 in day2) inner[k2] = (inner[k2]||0) + day2[k2];
+    }
+  }
+  return out;
+}
+// {date: val} → 加總指定範圍
+function sumRange(dict, start, end){
+  let s = 0;
+  for(const d in dict){ if(d>=start && d<=end) s += dict[d]; }
+  return s;
+}
+const normTxt = t => (t==='(not set)'||t==='(not_set)'||t==='') ? '(未命名)' : t;
 
 // kind: 'rel'(相對%) | 'pp'(百分點) | 'abs'(絕對差)。invert：數字越小越好（如搜尋排名）
 function deltaHtml(cur, prev, {pct=false, invert=false, unit='', kind=null, digits=1}={}){
@@ -406,42 +476,249 @@ function renderDevice(mount, rows){
   box.innerHTML=html+`<div class="note">${insight} 留資率＝該裝置 generate_lead ÷ 訪客。</div>`;
 }
 
-async function load(){
-  // 優先讀 Python 嵌入的資料（自包含 HTML）；若無則 fetch json（開發備援）
-  let cfg = window.__CONFIG__ || {}, h = window.__DATA__ || null;
-  if(!h){
-    try{ cfg=await (await fetch('data/config.json?_='+Date.now())).json(); }catch(e){}
-    try{ h=await (await fetch('data/history.json?_='+Date.now())).json(); }catch(e){
-      $('kpis').innerHTML='<div class="empty">無法載入資料檔</div>'; return;
+// ==================== 前端資料聚合引擎 ====================
+// Python 只吐「逐日明細」(RAW.by_day)；此處把 Python 舊版 fetch_ga4() 的視窗聚合邏輯原樣搬來，
+// 差別是視窗從固定 28 天改成使用者任選的日期範圍，套用日期篩選器後整頁都用這裡重新算。
+let RAW = null;
+
+function titleOf(path){
+  let t = RAW.titlesGa4[path] || RAW.titlesGa4[path.replace(/\/$/,'')];
+  if(!t){
+    const rec = RAW.titlesFallback[path] || RAW.titlesFallback[path.replace(/\/$/,'')] || {};
+    t = (rec && typeof rec==='object') ? (rec.title||'') : '';
+  }
+  t = (t||'').replace(/｜/g,'|').split('|')[0].trim();
+  return t ? t.slice(0,34) : path;
+}
+function bucketPrev(url){
+  const u=(url||'').toLowerCase();
+  if(u==='') return '直接進入 / 無來源';
+  if(u.includes('google')||u.includes('syndicatedsearch')) return 'Google 廣告/搜尋';
+  if(u.includes('bing')) return 'Bing 搜尋';
+  if(u.includes('erp-all')) return 'erp-all 本頁(重載/錨點)';
+  if(u.includes('digiwin.com')) return '站內其他頁導入';
+  return '其他外部';
+}
+function classifyRef(url){
+  if(!url) return ['直接進入','直接進入 / 無來源'];
+  let host='', path='';
+  try{ const u=new URL(url); host=(u.hostname||'').toLowerCase(); path=u.pathname||'/'; }catch(e){}
+  if(!host) return ['直接進入','直接 / App 內開啟'];
+  if(host.includes('digiwin.com')){
+    if(path.toLowerCase().includes('erp-all')) return ['erp-all 本頁','erp-all 本頁(重載/錨點)'];
+    const lab=titleOf(path);
+    return ['站內其他頁', lab!==path ? lab : path];
+  }
+  return ['外部來源', host];
+}
+function bucketNext(path){
+  const p=(path||'').toLowerCase();
+  if(p.includes('/dsc/')) return '行業方案頁';
+  if(p.includes('/contact/eform')) return '聯絡表單';
+  if(p.includes('/contact/success')) return '留資完成頁';
+  if(p.includes('erp-all')) return 'erp-all 本頁(錨點/重載)';
+  if(p==='/') return '首頁';
+  if(p.includes('/software')||p.includes('/wf')) return '軟體/WF 頁';
+  return '其他頁';
+}
+function isNext(path){
+  const p=(path||'').split('#')[0].split('?')[0];
+  if(p.toLowerCase().includes('erp-all')) return false;
+  if(RAW.convPaths.some(c=>p.includes(c))) return true;
+  if(!RAW.whitelistUsed) return true;
+  return RAW.whitelist.has(p) || RAW.whitelist.has(p.replace(/\/$/,''));
+}
+
+function computeGa4(start, end){
+  const [pStart, pEnd] = prevRangeOf(start, end);
+  const BD = RAW.byDay;
+
+  // 流量來源
+  const curSrc=aggRange2(BD.source_sessions,start,end), prvSrc=aggRange2(BD.source_sessions,pStart,pEnd);
+  const curSrcL=aggRange2(BD.source_leads,start,end), prvSrcL=aggRange2(BD.source_leads,pStart,pEnd);
+  const totSrc=Object.values(curSrc).reduce((a,b)=>a+b,0)||1;
+  const source_mix=Object.entries(curSrc).sort((a,b)=>b[1]-a[1]).map(([k,v])=>{
+    const lr=v?(curSrcL[k]||0)/v*100:0, pv=prvSrc[k]||0, plr=pv?(prvSrcL[k]||0)/pv*100:0;
+    return {channel:k, sessions:v, pct:r1(v/totSrc*100), prev_sessions:pv, delta:relDelta(v,pv),
+      leads:curSrcL[k]||0, lead_rate:r2(lr), prev_lead_rate:r2(plr),
+      lead_rate_delta_pp: pv? r2(lr-plr):null};
+  });
+
+  // 裝置
+  const curDevU=aggRange2(BD.device_users,start,end), prvDevU=aggRange2(BD.device_users,pStart,pEnd);
+  const curDevL=aggRange2(BD.device_leads,start,end), prvDevL=aggRange2(BD.device_leads,pStart,pEnd);
+  const totDevU=Object.values(curDevU).reduce((a,b)=>a+b,0)||1;
+  const device=Object.entries(curDevU).sort((a,b)=>b[1]-a[1]).map(([k,u])=>{
+    const cr=u?(curDevL[k]||0)/u*100:0, pu=prvDevU[k]||0, pr=pu?(prvDevL[k]||0)/pu*100:0;
+    return {device:k, users:u, pct:r1(u/totDevU*100), leads:curDevL[k]||0,
+      lead_rate:r2(cr), prev_lead_rate:r2(pr), lead_rate_delta_pp: pu? r2(cr-pr):null};
+  });
+
+  // content_click / 行業點擊
+  const curClk=aggRange2(BD.click,start,end), prvClk=aggRange2(BD.click,pStart,pEnd);
+  const clicksAll=Object.entries(curClk).sort((a,b)=>b[1]-a[1]).map(([k,v])=>({
+    text:normTxt(k), clicks:v, prev_clicks:prvClk[k]||0, delta:relDelta(v,prvClk[k]||0)}));
+  const content_click=clicksAll.slice(0,25);
+  const industry_click=clicksAll.filter(c=>RAW.industryKeywords.some(kw=>c.text.includes(kw))).slice(0,15);
+
+  // 點擊 × 裝置
+  const curCD=aggRange3(BD.click_device,start,end);
+  let td=0, tm=0;
+  const devClicksRaw=Object.entries(curCD).map(([txt,dv])=>{
+    const desk=dv.desktop||0, mob=dv.mobile||0, tab=dv.tablet||0;
+    td+=desk; tm+=mob;
+    return {text:normTxt(txt), desktop:desk, mobile:mob, tablet:tab, total:desk+mob+tab};
+  });
+  const grand=devClicksRaw.reduce((a,x)=>a+x.total,0);
+  devClicksRaw.forEach(x=>{
+    x.share=grand?r1(x.total/grand*100):0;
+    x.desktop_share=td?r1(x.desktop/td*100):0;
+    x.mobile_share=tm?r1(x.mobile/tm*100):0;
+    x.mobile_lean=x.mobile_share>x.desktop_share;
+  });
+  devClicksRaw.sort((a,b)=>b.total-a.total);
+  const click_device=devClicksRaw.slice(0,15);
+  const click_device_totals={desktop:td, mobile:tm, tablet:devClicksRaw.reduce((a,x)=>a+x.tablet,0), grand};
+
+  // 前一頁（分區）
+  const curPrevRaw=aggRange2(BD.prev_raw,start,end), prvPrevRaw=aggRange2(BD.prev_raw,pStart,pEnd);
+  const cpd={}, ppd={}, labGrp={};
+  Object.entries(curPrevRaw).forEach(([url,v])=>{ const [g,lab]=classifyRef(url); cpd[lab]=(cpd[lab]||0)+v; labGrp[lab]=g; });
+  Object.entries(prvPrevRaw).forEach(([url,v])=>{ const [,lab]=classifyRef(url); ppd[lab]=(ppd[lab]||0)+v; });
+  const totPd=Object.values(cpd).reduce((a,b)=>a+b,0)||1;
+  const pgroups={};
+  Object.entries(cpd).forEach(([lab,v])=>{
+    const pg=pgroups[labGrp[lab]]||(pgroups[labGrp[lab]]={views:0,items:[]});
+    pg.views+=v; pg.items.push({label:lab, views:v, delta:relDelta(v,ppd[lab]||0)});
+  });
+  const prev_grouped=Object.entries(pgroups).sort((a,b)=>b[1].views-a[1].views).map(([g,pg])=>({
+    group:g, views:pg.views, pct:r1(pg.views/totPd*100), count:pg.items.length,
+    items:pg.items.slice().sort((a,b)=>b.views-a.views).slice(0,8)}));
+
+  // 後一頁（分區 + 導流達成率）
+  const curNextRawAll=aggRange2(BD.next_raw,start,end), prvNextRawAll=aggRange2(BD.next_raw,pStart,pEnd);
+  const stayed=Object.entries(curNextRawAll).filter(([k])=>k.toLowerCase().includes('erp-all')).reduce((a,[,v])=>a+v,0);
+  const dropped=Object.entries(curNextRawAll).filter(([k])=>!isNext(k)&&!k.toLowerCase().includes('erp-all')).reduce((a,[,v])=>a+v,0);
+  const curNext={}, prvNext={};
+  Object.entries(curNextRawAll).forEach(([k,v])=>{ if(isNext(k)) curNext[k]=v; });
+  Object.entries(prvNextRawAll).forEach(([k,v])=>{ if(isNext(k)) prvNext[k]=v; });
+  const cbn={}, pbn={};
+  Object.entries(curNext).forEach(([p,v])=>{ const b=bucketNext(p); cbn[b]=(cbn[b]||0)+v; });
+  Object.entries(prvNext).forEach(([p,v])=>{ const b=bucketNext(p); pbn[b]=(pbn[b]||0)+v; });
+  const totN=Object.values(cbn).reduce((a,b)=>a+b,0)||1;
+  const next_page=Object.entries(cbn).sort((a,b)=>b[1]-a[1]).map(([k,v])=>({
+    label:k, views:v, pct:r1(v/totN*100), delta:relDelta(v,pbn[k]||0)}));
+  const routing={
+    to_industry_pct:r1((cbn['行業方案頁']||0)/totN*100),
+    to_form_pct:r1(((cbn['聯絡表單']||0)+(cbn['留資完成頁']||0))/totN*100),
+    design_pct:r1(((cbn['行業方案頁']||0)+(cbn['聯絡表單']||0)+(cbn['留資完成頁']||0))/totN*100),
+    total_next_views:totN, stayed_on_page:stayed, dropped_nonlink:dropped,
+    whitelist_used:RAW.whitelistUsed, whitelist_size:RAW.whitelist.size,
+  };
+  const ngroups={};
+  Object.entries(curNext).forEach(([path,v])=>{
+    const b=bucketNext(path);
+    const ng=ngroups[b]||(ngroups[b]={views:0,items:[]});
+    ng.views+=v;
+    ng.items.push({label:titleOf(path), path, views:v, delta:relDelta(v,prvNext[path]||0), industry:path.toLowerCase().includes('/dsc/')});
+  });
+  const next_grouped=Object.entries(ngroups).sort((a,b)=>b[1].views-a[1].views).map(([g,ng])=>({
+    group:g, views:ng.views, pct:r1(ng.views/totN*100), count:ng.items.length,
+    items:ng.items.slice().sort((a,b)=>b.views-a.views).slice(0,8)}));
+
+  // 廣告表現
+  const curAdsS=sumRange(BD.ads_sessions,start,end), prvAdsS=sumRange(BD.ads_sessions,pStart,pEnd);
+  const curAdsL=sumRange(BD.ads_leads,start,end), prvAdsL=sumRange(BD.ads_leads,pStart,pEnd);
+  const curDailyArr=RAW.daily.filter(d=>d.date>=start && d.date<=end);
+  const allS=curDailyArr.reduce((a,d)=>a+(d.sessions||0),0)||1;
+  const lrC=curAdsS?curAdsL/curAdsS*100:0, lrP=prvAdsS?prvAdsL/prvAdsS*100:0;
+  const curCamp=aggRange2(BD.campaign_sessions,start,end), prvCamp=aggRange2(BD.campaign_sessions,pStart,pEnd);
+  const curCampL=aggRange2(BD.campaign_leads,start,end), prvCampL=aggRange2(BD.campaign_leads,pStart,pEnd);
+  const campaigns=Object.entries(curCamp).sort((a,b)=>b[1]-a[1]).slice(0,10).map(([k,v])=>{
+    const lr=v?(curCampL[k]||0)/v*100:0, pv=prvCamp[k]||0, plr=pv?(prvCampL[k]||0)/pv*100:0;
+    return {campaign:k, sessions:v, leads:curCampL[k]||0, lead_rate:r2(lr), delta:relDelta(v,pv),
+      lead_rate_delta_pp: pv? r2(lr-plr):null};
+  });
+  const ads={
+    sessions:curAdsS, leads:curAdsL, lead_rate:r2(lrC), share_pct:r1(curAdsS/allS*100),
+    prev:{sessions:prvAdsS, leads:prvAdsL, lead_rate:r2(lrP)},
+    delta:{sessions:relDelta(curAdsS,prvAdsS), lead_rate_pp: prvAdsS? r2(lrC-lrP):null},
+    campaigns,
+  };
+
+  return {curDailyArr, source_mix, device, content_click, industry_click, click_device, click_device_totals,
+          next_page, prev_grouped, next_grouped, routing, ads};
+}
+
+function computeGsc(start, end){
+  const g = RAW.gsc;
+  if(!g.available) return {available:false, note:g.note, daily:[], queries:[], totals:{}};
+  const [pStart,pEnd] = prevRangeOf(start,end);
+  const curD = g.daily.filter(d=>d.date>=start && d.date<=end);
+  const prvD = g.daily.filter(d=>d.date>=pStart && d.date<=pEnd);
+  const aggTot = arr => {
+    let clicks=0, impressions=0, posw=0;
+    arr.forEach(d=>{ clicks+=d.clicks; impressions+=d.impressions; posw+=d.position*d.impressions; });
+    return {clicks, impressions, ctr: impressions? r2(clicks/impressions*100):0, position: impressions? r1(posw/impressions):0};
+  };
+  const curT=aggTot(curD), prvT=aggTot(prvD);
+  const totals={
+    clicks:curT.clicks, impressions:curT.impressions, ctr:curT.ctr, position:curT.position, prev:prvT,
+    delta:{
+      clicks:relDelta(curT.clicks,prvT.clicks), impressions:relDelta(curT.impressions,prvT.impressions),
+      ctr_pp: prvT.impressions? r2(curT.ctr-prvT.ctr):null,
+      position_pp: prvT.position? r1(curT.position-prvT.position):null,
+    },
+  };
+  const qbd=g.queryByDay||{};
+  const aggQ=(s,e)=>{
+    const acc={};
+    for(const d in qbd){
+      if(d<s||d>e) continue;
+      const day=qbd[d];
+      for(const qq in day){
+        const rec=day[qq];
+        const a=acc[qq]||(acc[qq]={clicks:0,impressions:0,posw:0});
+        a.clicks+=rec.clicks; a.impressions+=rec.impressions; a.posw+=rec.position*rec.impressions;
+      }
     }
-  }
-  const N = h.window_days || cfg.compare_window_days || 28;
-  const launch = cfg.rewrite_launch_date;
-  $('site-title').textContent = cfg.site_title || 'ERP-ALL 留資成效追蹤';
+    return acc;
+  };
+  const curQ=aggQ(start,end), prvQ=aggQ(pStart,pEnd);
+  const queries=Object.entries(curQ).sort((a,b)=>b[1].clicks-a[1].clicks).slice(0,25).map(([qq,a])=>({
+    query:qq, clicks:a.clicks, impressions:a.impressions,
+    ctr: a.impressions? r2(a.clicks/a.impressions*100):0,
+    position: a.impressions? r1(a.posw/a.impressions):0,
+    delta: relDelta(a.clicks, (prvQ[qq]||{}).clicks||0),
+  }));
+  return {available:true, range:g.range, daily:curD, queries, totals};
+}
 
-  // header
-  const pills=$('pills');
-  pills.appendChild(el('span','pill live','●'));
-  if(launch) pills.appendChild(el('span','pill',`改寫上線 ${launch}`));
-  $('subline').textContent = h.updated_at ? `資料更新：${h.updated_at}（台北時間）｜比較窗：近 ${N} 天 vs 前 ${N} 天` : '尚未執行第一次抓數';
+// ==================== 渲染：套用某個日期範圍到整頁 ====================
+function applyRange(start, end){
+  const N = dayCountISO(start, end);
+  $('df-current').textContent = `已選：${start} ～ ${end}（共 ${N} 天，vs 前 ${N} 天）`;
 
-  if(!h.ga4 || !h.ga4.daily || !h.ga4.daily.length){
-    $('banner-slot').innerHTML = `<div class="banner">目前尚無 GA4 資料。GitHub Actions 排程首次執行後（每日台北 06:00）此頁會自動填入數據。${h.status?'<br>狀態：'+esc(h.status):''}</div>`;
-    $('kpis').innerHTML='<div class="empty">等待第一次資料</div>';
-    return;
-  }
+  const {curDailyArr, source_mix, device, content_click, industry_click, click_device, click_device_totals,
+         next_page, prev_grouped, next_grouped, routing, ads} = computeGa4(start, end);
+  const [pStart, pEnd] = prevRangeOf(start, end);
+  const prevDailyArr = RAW.daily.filter(d=>d.date>=pStart && d.date<=pEnd);
 
-  const daily = h.ga4.daily;
-  const {cur, prev} = splitWindows(daily, N);
-  $('trend-note').textContent = `近 ${daily.length} 天，橘色虛線為改寫上線日`;
+  $('subline').textContent = RAW.updatedAt ? `資料更新：${RAW.updatedAt}（台北時間）｜比較窗：近 ${N} 天 vs 前 ${N} 天` : '尚未執行第一次抓數';
+  $('kpi-note').innerHTML = `近 ${N} 天 vs 前 ${N} 天　｜　漲跌單位：計數(訪客/點擊/曝光)用 <b>%</b> 相對變化、比率(留資率/CTR/互動率)用 <b>pp</b> 百分點`;
+  $('note-source').textContent = `近 ${N} 天，數字後為 vs 前 ${N} 天`;
+  $('note-ads').textContent = `付費(cpc)流量，近 ${N} 天 vs 前 ${N} 天`;
+  $('note-click').textContent = `content_click，近 ${N} 天，數字後為 vs 前 ${N} 天`;
+  $('note-routing').textContent = `近 ${N} 天，數字後為 vs 前 ${N} 天`;
+  $('trend-note').textContent = `${start} ～ ${end}（共 ${curDailyArr.length} 天），橘色虛線為改寫上線日`;
 
   // ---- KPI ----
-  const curUsers=sum(cur,'users'), prevUsers=sum(prev,'users');
-  const curLeads=sum(cur,'leads'), prevLeads=sum(prev,'leads');
+  const curUsers=sum(curDailyArr,'users'), prevUsers=sum(prevDailyArr,'users');
+  const curLeads=sum(curDailyArr,'leads'), prevLeads=sum(prevDailyArr,'leads');
   const curRate= curUsers? curLeads/curUsers*100:0;
   const prevRate= prevUsers? prevLeads/prevUsers*100:0;
-  const curEng=avg(cur,'engagement_rate'), prevEng=avg(prev,'engagement_rate');
-  const curVps=avg(cur,'views_per_session'), prevVps=avg(prev,'views_per_session');
+  const curEng=avg(curDailyArr,'engagement_rate'), prevEng=avg(prevDailyArr,'engagement_rate');
+  const curVps=avg(curDailyArr,'views_per_session'), prevVps=avg(prevDailyArr,'views_per_session');
 
   const k=$('kpis'); k.innerHTML='';
   k.appendChild(kpiCard('當頁留資率', `${curRate.toFixed(2)}<small>%</small>`, deltaHtml(curRate,prevRate,{pct:true,unit:'%'})));
@@ -450,26 +727,25 @@ async function load(){
   k.appendChild(kpiCard('互動率', `${curEng.toFixed(1)}<small>%</small>`, deltaHtml(curEng,prevEng,{pct:true,unit:'%'})));
   k.appendChild(kpiCard('平均觀看頁數', `${curVps.toFixed(2)}`, deltaHtml(curVps,prevVps,{})));
 
-  // ---- 趨勢 ----
-  lineChart('chart-leadrate', daily, 'lead_rate', {launch, fmt:v=>v.toFixed(1)+'%', color:'#195AFE'});
-  lineChart('chart-users', daily, 'users', {launch, fmt:v=>NF.format(Math.round(v)), color:'#0FBFE5'});
+  // ---- 趨勢（依所選範圍畫圖）----
+  lineChart('chart-leadrate', curDailyArr, 'lead_rate', {launch:RAW.launch, fmt:v=>v.toFixed(1)+'%', color:'#195AFE'});
+  lineChart('chart-users', curDailyArr, 'users', {launch:RAW.launch, fmt:v=>NF.format(Math.round(v)), color:'#0FBFE5'});
 
   // ---- 來源 / 裝置 ----
-  renderSource('source-mix', h.ga4.source_mix);
-  renderDevice('device-split', h.ga4.device);
+  renderSource('source-mix', source_mix);
+  renderDevice('device-split', device);
 
   // ---- 廣告表現 ----
-  const ad=h.ga4.ads;
-  if(ad){
-    const ap=ad.prev||{}, ad_d=ad.delta||{};
-    const ah=$('ads-headline');
+  if(ads){
+    const ap=ads.prev||{};
+    const ah=$('ads-headline'); ah.innerHTML='';
     const cards=el('div','kpis');
-    cards.appendChild(kpiCard('廣告工作階段', `${NF.format(ad.sessions)}<small> ／占 ${ad.share_pct}%</small>`, deltaHtml(ad.sessions,ap.sessions,{})));
-    cards.appendChild(kpiCard('廣告留資率', `${ad.lead_rate.toFixed(2)}<small>%</small>`, deltaHtml(ad.lead_rate,ap.lead_rate,{kind:'pp',unit:'%'})));
-    cards.appendChild(kpiCard('廣告留資數', `${NF.format(ad.leads)}<small> 筆</small>`, deltaHtml(ad.leads,ap.leads,{})));
+    cards.appendChild(kpiCard('廣告工作階段', `${NF.format(ads.sessions)}<small> ／占 ${ads.share_pct}%</small>`, deltaHtml(ads.sessions,ap.sessions,{})));
+    cards.appendChild(kpiCard('廣告留資率', `${ads.lead_rate.toFixed(2)}<small>%</small>`, deltaHtml(ads.lead_rate,ap.lead_rate,{kind:'pp',unit:'%'})));
+    cards.appendChild(kpiCard('廣告留資數', `${NF.format(ads.leads)}<small> 筆</small>`, deltaHtml(ads.leads,ap.leads,{})));
     ah.appendChild(cards);
     // 各檔期表格
-    const cs=ad.campaigns||[];
+    const cs=ads.campaigns||[];
     const cbox=$('ads-campaigns');
     if(!cs.length){ cbox.innerHTML='<div class="empty">尚無檔期資料</div>'; }
     else{
@@ -491,13 +767,14 @@ async function load(){
   }
 
   // ---- 點擊（每列帶 vs 前期漲跌）----
-  renderIndustry('industry-click', h.ga4.industry_click, h.ga4.content_click);
-  barList('content-click', (h.ga4.content_click||[]).slice(0,12), {nameKey:'text', valKey:'clicks', deltaKind:'rel', showTotal:true});
-  renderClickDevice('click-device', h.ga4.click_device, h.ga4.click_device_totals);
+  renderIndustry('industry-click', industry_click, content_click);
+  barList('content-click', (content_click||[]).slice(0,12), {nameKey:'text', valKey:'clicks', deltaKind:'rel', showTotal:true});
+  renderClickDevice('click-device', click_device, click_device_totals);
 
   // ---- 分流樞紐 ----
-  const rt=h.ga4.routing||{};
-  const rh=$('routing-headline');
+  const rt=routing||{};
+  const rh=$('routing-headline'); rh.innerHTML='';
+  $('home-leak').innerHTML='';
   if(rt.total_next_views){
     rh.innerHTML=`<div class="panel" style="display:flex;flex-wrap:wrap;gap:28px;align-items:center">
       <div><div class="label" style="color:var(--t3)">設計導流達成率</div>
@@ -510,25 +787,25 @@ async function load(){
     <div class="note" style="margin-top:8px">「下一頁」已用爬取 erp-all 的實際連結白名單（${rt.whitelist_size||0} 條）過濾：排除同頁重載/錨點 <b>${NF.format(rt.stayed_on_page||0)}</b> 次、非連結流量 ${NF.format(rt.dropped_nonlink||0)} 次，只計真正點連結前往的下一頁。${rt.whitelist_used?'':'（本次爬取失敗，僅排除本頁）'}</div>`;
   }
   // 後一頁＝首頁：推測性漏點（沒找到想要的內容而退回首頁）
-  const home=(h.ga4.next_page||[]).find(r=>r.label==='首頁');
+  const home=(next_page||[]).find(r=>r.label==='首頁');
   if(home){
     $('home-leak').innerHTML=`<div class="banner" style="margin-top:16px">
       <b>⚠ 後一頁退回首頁：${home.pct}%（${NF.format(home.views)} 次）</b> ${relChip(home.delta,'rel',false,true)}
       <span style="color:var(--t3)"> · 越少越好，下降為佳</span><br>
       <b>推測</b>：這批使用者可能在 erp-all <b>沒找到想要的內容</b>，退回首頁另尋。回首頁不推進留資漏斗，且與「導流到行業方案」的設計方向相反。
-      此為行為推測 —— 回首頁也可能只是點 logo 的一般導覽，非定論；建議與「行業方案頁 ${(h.ga4.routing||{}).to_industry_pct||0}%」的導流比對照觀察。
+      此為行為推測 —— 回首頁也可能只是點 logo 的一般導覽，非定論；建議與「行業方案頁 ${(routing||{}).to_industry_pct||0}%」的導流比對照觀察。
     </div>`;
   }
-  renderGrouped('prev-grouped', h.ga4.prev_grouped);
-  renderGrouped('next-grouped', h.ga4.next_grouped, {highlight:r=>r.industry});
+  renderGrouped('prev-grouped', prev_grouped);
+  renderGrouped('next-grouped', next_grouped, {highlight:r=>r.industry});
 
   // ---- GSC ----
-  const gsc=h.gsc||{}; const slot=$('gsc-slot');
+  const gsc=computeGsc(start, end); const slot=$('gsc-slot'); slot.innerHTML='';
   if(!gsc.available){
     $('gsc-note').textContent='未授權';
     slot.innerHTML=`<div class="empty">Search Console 未接上。${gsc.note?esc(gsc.note):''}<br>若要顯示搜尋成效，請將服務帳號 email 加為該 GSC 資源的使用者。</div>`;
   }else{
-    $('gsc-note').textContent = gsc.range ? `近 ${N} 天 ${gsc.range[0]} ~ ${gsc.range[1]}（延遲約 3 天）vs 前 ${N} 天` : '';
+    $('gsc-note').textContent = `近 ${N} 天 ${start} ~ ${end}（延遲約 3 天）vs 前 ${N} 天`;
     const t=gsc.totals||{}, p=t.prev||{};
     const cards=el('div','kpis');
     cards.appendChild(kpiCard('點擊',`${NF.format(t.clicks||0)}`, deltaHtml(t.clicks,p.clicks,{})));
@@ -559,7 +836,91 @@ async function load(){
   }
 
   // footer
+  const cfg = RAW.cfg;
   $('footer').innerHTML = `資料來源：GA4 Data API（網域 ${esc(cfg.host||'www.digiwin.com.tw')}、頁面含「${esc(cfg.page_filter||'erp-all')}」）＋ Google Search Console。每週二 台北 08:00 由 GitHub Actions 自動更新。<br>本頁 <b>noindex/nofollow</b>，不被搜尋引擎收錄。留資率＝當頁 generate_lead ÷ 訪客；跨頁「總留資貢獻」需 path-export 手動分析，不在本自動追蹤範圍。<br><b>漲跌單位</b>：計數類用相對 %，比率類用百分點 pp。`;
+}
+
+// ---- 日期篩選器 UI：套用預設區間或自訂區間 → applyRange() 重算整頁 ----
+function initDateFilter(minDate, maxDate, defaultN){
+  const startInput=$('df-start'), endInput=$('df-end');
+  startInput.min=minDate; startInput.max=maxDate;
+  endInput.min=minDate; endInput.max=maxDate;
+
+  const presets=[[7,'近 7 天'],[14,'近 14 天'],[28,'近 28 天'],[RAW.historyDays||90,`近 ${RAW.historyDays||90} 天`],['all','全部']];
+  const box=$('df-presets'); box.innerHTML='';
+  const btns={};
+  presets.forEach(([n,label])=>{
+    const b=el('button','df-btn',esc(label));
+    b.type='button';
+    b.onclick=()=>{
+      const end=maxDate;
+      const start=n==='all' ? minDate : (addDaysISO(end,-(n-1))<minDate?minDate:addDaysISO(end,-(n-1)));
+      setActive(n);
+      startInput.value=start; endInput.value=end;
+      applyRange(start,end);
+    };
+    box.appendChild(b);
+    btns[n]=b;
+  });
+  function setActive(n){ Object.entries(btns).forEach(([k,b])=>b.classList.toggle('active', k==String(n))); }
+
+  $('df-apply').onclick=()=>{
+    let s=startInput.value, e=endInput.value;
+    if(!s || !e || s>e) return;
+    if(s<minDate) s=minDate;
+    if(e>maxDate) e=maxDate;
+    Object.values(btns).forEach(b=>b.classList.remove('active'));
+    applyRange(s,e);
+  };
+
+  const defEnd=maxDate;
+  const defStart=addDaysISO(defEnd,-(defaultN-1))<minDate?minDate:addDaysISO(defEnd,-(defaultN-1));
+  startInput.value=defStart; endInput.value=defEnd;
+  setActive(defaultN);
+  applyRange(defStart, defEnd);
+}
+
+async function load(){
+  // 優先讀 Python 嵌入的資料（自包含 HTML）；若無則 fetch json（開發備援）
+  let cfg = window.__CONFIG__ || {}, h = window.__DATA__ || null;
+  if(!h){
+    try{ cfg=await (await fetch('data/config.json?_='+Date.now())).json(); }catch(e){}
+    try{ h=await (await fetch('data/history.json?_='+Date.now())).json(); }catch(e){
+      $('kpis').innerHTML='<div class="empty">無法載入資料檔</div>'; return;
+    }
+  }
+  $('site-title').textContent = cfg.site_title || 'ERP-ALL 留資成效追蹤';
+  const pills=$('pills');
+  pills.appendChild(el('span','pill live','●'));
+  if(cfg.rewrite_launch_date) pills.appendChild(el('span','pill',`改寫上線 ${cfg.rewrite_launch_date}`));
+
+  if(!h.ga4 || !h.ga4.daily || !h.ga4.daily.length){
+    $('banner-slot').innerHTML = `<div class="banner">目前尚無 GA4 資料。GitHub Actions 排程首次執行後（每日台北 06:00）此頁會自動填入數據。${h.status?'<br>狀態：'+esc(h.status):''}</div>`;
+    $('kpis').innerHTML='<div class="empty">等待第一次資料</div>';
+    return;
+  }
+
+  RAW = {
+    cfg,
+    updatedAt: h.updated_at,
+    launch: cfg.rewrite_launch_date,
+    historyDays: h.history_days,
+    daily: h.ga4.daily,
+    byDay: h.ga4.by_day,
+    titlesGa4: h.ga4.titles_ga4 || {},
+    titlesFallback: h.ga4.titles_fallback || {},
+    whitelist: new Set(h.ga4.next_whitelist || []),
+    whitelistUsed: !!h.ga4.whitelist_used,
+    industryKeywords: h.ga4.industry_keywords || [],
+    convPaths: h.ga4.conv_paths || [],
+    gsc: {available: !!(h.gsc&&h.gsc.available), note: h.gsc&&h.gsc.note,
+          range: h.gsc&&h.gsc.range, daily: (h.gsc&&h.gsc.daily)||[], queryByDay: (h.gsc&&h.gsc.query_by_day)||{}},
+  };
+
+  const allDates = RAW.daily.map(d=>d.date).sort();
+  const minDate = allDates[0], maxDate = allDates[allDates.length-1];
+  const defaultN = h.window_days || cfg.compare_window_days || 28;
+  initDateFilter(minDate, maxDate, defaultN);
 }
 load();
 </script>
